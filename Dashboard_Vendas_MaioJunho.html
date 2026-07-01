@@ -482,12 +482,12 @@ function renderSheetSources(){
   sheetSources.forEach((src,index)=>{
     const row = document.createElement('div');
     row.className = 'sheet-row';
-    const st = src.lastError ? 'status-err' : (src.parsed ? 'status-ok' : 'status-empty');
+    const info = sheetStatusInfo(src);
     const total = src.parsed ? src.parsed.t.toLocaleString('pt-BR') : '-';
     row.innerHTML = `
       <input class="sheet-edit" id="${sheetInputId('sheet-name',index)}" value="${escAttr(src.name)}" aria-label="Nome do mês">
       <input class="sheet-edit" id="${sheetInputId('sheet-url',index)}" value="${escAttr(src.url)}" placeholder="Cole o link da planilha" aria-label="Link da planilha">
-      <span class="status-pill ${st}" title="${escAttr(info.title)}">${info.text}</span>
+      <span class="status-pill ${info.cls}" title="${escAttr(info.title)}">${info.text}</span>
       <span>${total}</span>
       <span>${formatDateTime(src.lastSync)}</span>
       <button class="sheet-btn secondary" type="button" onclick="abrirPlanilha(${index})">Abrir</button>
