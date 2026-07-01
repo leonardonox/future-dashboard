@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: vina-dashboard
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/storage
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vina-dashboard-db
+          property: connectionString
+
+databases:
+  - name: vina-dashboard-db
+    plan: free

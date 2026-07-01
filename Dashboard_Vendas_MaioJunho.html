@@ -1,0 +1,1009 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dashboard Comparativo de Vendas 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --az1:#1F4E79;--az2:#2E75B6;--az3:#BDD7EE;
+  --vd1:#375623;--vd2:#70AD47;--vd3:#E2EFDA;
+  --lj1:#833C00;--lj2:#C55A11;--lj3:#FCE4D6;
+  --bg:#F0F4F8;--white:#fff;--shadow:0 2px 12px rgba(0,0,0,.10);
+  --red:#C00000;--yel:#FFF2CC;--gray:#6c757d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:#222}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--az1),var(--az2));
+  color:#fff;padding:22px 28px 16px;position:sticky;top:0;z-index:200;
+  box-shadow:0 3px 16px rgba(0,0,0,.22);position:relative
+}
+header h1{font-size:1.4rem;font-weight:700}
+header p{font-size:.85rem;opacity:.85;margin-top:3px}
+#btn-refresh{
+  position:absolute;top:18px;right:20px;
+  background:rgba(255,255,255,.18);color:#fff;
+  border:2px solid rgba(255,255,255,.55);border-radius:22px;
+  padding:8px 18px;font-size:.85rem;font-weight:700;cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;gap:6px
+}
+#btn-refresh:hover:not(:disabled){background:rgba(255,255,255,.32)}
+#btn-refresh:disabled{opacity:.6;cursor:default}
+#refresh-status{
+  position:absolute;bottom:6px;right:20px;
+  font-size:.72rem;opacity:.8;color:#fff
+}
+
+/* MONTH SELECTOR BAR */
+.sel-bar{
+  background:var(--white);padding:14px 28px 12px;
+  border-bottom:2px solid var(--az3);box-shadow:0 2px 6px rgba(0,0,0,.07)
+}
+.sel-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.sel-top label{font-weight:700;font-size:.9rem;color:var(--az1)}
+.sel-grid{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start}.compare-slot{display:flex;flex-direction:column;gap:5px}.month-options{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.month-group{display:flex;flex-direction:column;align-items:center;gap:4px}
+.month-btn{
+  padding:8px 20px;border:2px solid var(--az3);border-radius:22px;
+  cursor:pointer;font-size:.9rem;font-weight:600;background:var(--white);
+  color:var(--az2);transition:all .2s;min-width:90px
+}
+.month-btn.sel-a{background:var(--az2);color:#fff;border-color:var(--az2)}
+.month-btn.sel-b{background:var(--vd1);color:#fff;border-color:var(--vd1)}
+.month-btn.has-data{border-color:#74b57a}.month-btn.no-data{opacity:.55;border-style:dashed;color:#777}.month-btn.has-error{border-color:var(--red);color:var(--red)}
+.month-btn:hover:not(.sel-a):not(.sel-b){background:var(--az3)}
+.slot-lbl{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.slot-a{color:var(--az2)}.slot-b{color:var(--vd1)}
+.vs-label{font-size:1.2rem;font-weight:900;color:var(--az1);padding:0 6px;align-self:center;margin-top:14px}
+.sel-hint{font-size:.76rem;color:var(--gray);margin-top:4px}
+
+/* TABS */
+.tabs{display:flex;gap:4px;padding:14px 24px 0;border-bottom:2px solid var(--az3)}
+.tab-btn{padding:8px 20px;border:none;border-radius:8px 8px 0 0;cursor:pointer;
+  font-size:.88rem;font-weight:600;background:var(--az3);color:var(--az1);transition:all .2s}
+.tab-btn.active{background:var(--az2);color:#fff}
+.tab-btn:hover:not(.active){background:#a8c6e8}
+
+/* PANELS */
+.panel{display:none;padding:22px 24px 32px;animation:fadeIn .3s}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:24px}
+.kpi-card{background:var(--white);border-radius:13px;padding:18px 20px;box-shadow:var(--shadow);border-left:5px solid var(--az2)}
+.kpi-card.vd{border-color:var(--vd1)}.kpi-card.lj{border-color:var(--lj2)}.kpi-card.rd{border-color:var(--red)}
+.kpi-lbl{font-size:.75rem;color:#666;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.kpi-vals{display:flex;align-items:baseline;gap:10px;margin-top:7px;flex-wrap:wrap}
+.va{font-size:1.5rem;font-weight:700;color:var(--az2)}
+.vb{font-size:1.5rem;font-weight:700;color:var(--vd1)}
+.sep{font-size:1rem;color:#bbb}
+.badge{font-size:.82rem;font-weight:700;padding:3px 9px;border-radius:18px}
+.pos{background:#d5f0d0;color:var(--vd1)}.neg{background:#ffd5d5;color:var(--red)}
+.kpi-sub{font-size:.72rem;color:#999;margin-top:5px}
+
+/* CHARTS */
+.chart-card{background:var(--white);border-radius:13px;padding:20px 22px;box-shadow:var(--shadow);margin-bottom:20px}
+.chart-title{font-size:1rem;font-weight:700;color:var(--az1);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--az3)}
+.h360{height:360px;position:relative}.h300{height:300px;position:relative}.h200{height:200px;position:relative}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+@media(max-width:740px){.two{grid-template-columns:1fr}}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto;border-radius:10px;box-shadow:var(--shadow);margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:.83rem}
+th{background:var(--az2);color:#fff;padding:9px 11px;text-align:center;font-weight:600;white-space:nowrap}
+th:first-child{text-align:left}
+td{padding:7px 11px;text-align:center;border-bottom:1px solid #e8eef4}
+td:first-child{text-align:left;font-weight:600}
+tr:hover td{background:#f0f6ff}
+.fds-row td{background:var(--yel)!important}
+.up{color:var(--vd1);font-weight:700}.dn{color:var(--red);font-weight:700}
+.util-b{background:var(--az3);color:var(--az1);padding:2px 7px;border-radius:7px;font-size:.73rem;font-weight:600}
+.fds-b{background:var(--lj3);color:var(--lj2);padding:2px 7px;border-radius:7px;font-size:.73rem;font-weight:600}
+.col-a{color:var(--az2);font-weight:700}.col-b{color:var(--vd1);font-weight:700}
+
+/* FILTER BAR */
+.fbar{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.fbar input,.fbar select{padding:7px 13px;border-radius:8px;border:1.5px solid var(--az3);font-size:.85rem;outline:none;background:#fff}
+.fbar input:focus,.fbar select:focus{border-color:var(--az2)}
+.flbl{font-size:.83rem;color:#555;font-weight:600}
+
+/* Legend dots */
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.dot-a{background:var(--az2)}.dot-b{background:var(--vd1)}
+
+.note{font-size:.76rem;color:#888;margin-top:12px;text-align:center}
+/* DATABASE TAB */
+.sheet-panel{display:grid;gap:14px}
+.sheet-title{font-size:1rem;font-weight:800;color:var(--az1);padding-bottom:8px;border-bottom:2px solid var(--az3)}
+.sheet-form{display:grid;grid-template-columns:minmax(160px,240px) minmax(260px,1fr) auto auto;gap:8px;align-items:center}
+.sheet-form input,.sheet-edit{height:36px;border:1.5px solid var(--az3);border-radius:8px;padding:0 12px;font-size:.85rem;outline:none;background:#fff;min-width:0}
+.sheet-form input:focus,.sheet-edit:focus{border-color:var(--az2)}
+.sheet-btn{height:36px;border:none;border-radius:8px;padding:0 14px;font-size:.82rem;font-weight:800;cursor:pointer;color:#fff;background:var(--az2);white-space:nowrap}
+.sheet-btn.secondary{background:var(--vd1)}
+.sheet-btn.danger{background:var(--red)}
+.sheet-btn:disabled{opacity:.6;cursor:default}
+.sheet-list{display:grid;gap:8px}
+.sheet-head,.sheet-row{display:grid;grid-template-columns:minmax(120px,180px) minmax(260px,1fr) minmax(170px,240px) minmax(90px,120px) minmax(130px,180px) auto auto auto;gap:8px;align-items:center}
+.sheet-head{font-size:.72rem;font-weight:800;color:var(--az1);text-transform:uppercase;letter-spacing:.4px;padding:0 10px}
+.sheet-row{padding:9px 10px;border:1px solid #e5edf5;border-radius:8px;background:#f8fbff;font-size:.8rem}
+.sheet-row span{color:#666;white-space:nowrap}
+.sheet-status{font-size:.76rem;color:#666;min-height:18px}
+@media(max-width:900px){.sheet-form,.sheet-head,.sheet-row{grid-template-columns:1fr}.sheet-head{display:none}.sheet-btn{width:100%}}
+.data-warning{display:none;margin:12px 24px 0;padding:10px 14px;border:1px solid #f0cf73;background:#fff8df;color:#6b4e00;border-radius:8px;font-size:.84rem;font-weight:700}
+.data-warning.show{display:block}
+.status-pill{display:inline-flex;align-items:center;justify-content:center;border-radius:16px;padding:4px 9px;font-size:.72rem;font-weight:800;white-space:nowrap}
+.status-ok{background:#d5f0d0;color:var(--vd1)}.status-empty{background:#eef1f4;color:#666}.status-err{background:#ffd5d5;color:var(--red)}.status-dup{background:#fff2cc;color:#8a5a00}
+.sheet-history{display:grid;gap:6px;margin-top:4px}.history-row{display:grid;grid-template-columns:160px 1fr 120px 120px;gap:8px;align-items:center;padding:7px 10px;background:#fff;border:1px solid #e5edf5;border-radius:8px;font-size:.78rem}.history-row b{color:var(--az1)}
+.analysis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:18px}.analysis-card{background:#fff;border-radius:8px;box-shadow:var(--shadow);padding:16px;border-left:4px solid var(--az2)}.analysis-card h3{font-size:.85rem;color:var(--az1);margin-bottom:8px}.analysis-card .big{font-size:1.45rem;font-weight:800}.analysis-table{background:#fff;border-radius:8px;box-shadow:var(--shadow);overflow:hidden}.analysis-actions{display:flex;gap:8px;justify-content:flex-end;margin-bottom:14px;flex-wrap:wrap}.empty-state{background:#fff;border:1px dashed var(--az3);border-radius:8px;padding:18px;color:#666;font-weight:700;text-align:center}
+@media(max-width:900px){.history-row{grid-template-columns:1fr}.sheet-head,.sheet-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📊 Dashboard Comparativo de Vendas — 2026</h1>
+  <p id="header-info">Período: mês inteiro disponível na planilha &nbsp;|&nbsp; Atualizado: 23/06/2026 &nbsp;|&nbsp; 🔵 Dia Útil &nbsp; 🔴 Fim de Semana</p>
+  <button id="btn-refresh" onclick="atualizarDados()">🔄 Atualizar</button>
+  <div id="refresh-status"></div>
+</header>
+
+<!-- MONTH SELECTOR -->
+<div class="sel-bar">
+  <div class="sel-top"><label>📅 Selecione os meses para comparar:</label></div>
+  <div class="sel-grid compare-grid">
+    <div class="compare-slot">
+      <span class="slot-lbl slot-a">⬛ Mês A</span>
+      <div id="month-slot-a" class="month-options"></div>
+    </div>
+    <span class="vs-label">VS</span>
+    <div class="compare-slot">
+      <span class="slot-lbl slot-b">⬛ Mês B</span>
+      <div id="month-slot-b" class="month-options"></div>
+    </div>
+  </div>  <div class="sel-hint">🔵 Mês A (azul) &nbsp;|&nbsp; 🟢 Mês B (verde) &nbsp;|&nbsp; Clique para trocar a seleção — qualquer combinação é possível</div>
+</div>
+
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('resumo',this)">📈 Resumo</button>
+  <button class="tab-btn"        onclick="showTab('diario',this)">📅 Por Dia</button>
+  <button class="tab-btn"        onclick="showTab('revistas',this)">📰 Por Revista</button>
+  <button class="tab-btn"        onclick="showTab('base',this)">🗄️ Base de dados</button>
+  <button class="tab-btn"        onclick="showTab('analise',this)">🧠 Análise</button>
+</div>
+<div id="data-warning" class="data-warning"></div>
+
+<!-- ══ TAB RESUMO ══ -->
+<div class="panel active" id="tab-resumo">
+  <div class="kpi-grid" id="kpis"></div>
+  <div class="two">
+    <div class="chart-card">
+      <div class="chart-title" id="tit-acum">📈 Evolução Acumulada</div>
+      <div class="h300"><canvas id="cAcum"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">🍕 Composição Úteis vs FDS</div>
+      <div class="h300"><canvas id="cDonut"></canvas></div>
+    </div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title" id="tit-top">🏆 Top 15 Revistas</div>
+    <div class="h360"><canvas id="cTop"></canvas></div>
+  </div>
+</div>
+
+<!-- ══ TAB DIÁRIO ══ -->
+<div class="panel" id="tab-diario">
+  <div class="chart-card">
+    <div class="chart-title" id="tit-daily">📅 Vendas Diárias</div>
+    <div class="h360"><canvas id="cDaily"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">📉 Diferença diária (B − A)</div>
+    <div class="h200"><canvas id="cDiff"></canvas></div>
+  </div>
+  <div class="tbl-wrap"><table id="tblDaily">
+    <thead><tr>
+      <th>Dia</th>
+      <th id="th-dA1">Data A</th><th>Tipo</th><th id="th-vA">Vendas A</th>
+      <th id="th-dB1">Data B</th><th>Tipo</th><th id="th-vB">Vendas B</th>
+      <th>Δ (B−A)</th><th>Δ %</th>
+    </tr></thead>
+    <tbody id="tbody-daily"></tbody>
+  </table></div>
+  <p class="note">🟡 Linhas amarelas = ao menos um dos dias é fim de semana</p>
+</div>
+
+<!-- ══ TAB REVISTAS ══ -->
+<div class="panel" id="tab-revistas">
+  <div class="fbar">
+    <span class="flbl">🔍</span>
+    <input type="text" id="fTxt" placeholder="Nome da revista..." oninput="renderMags()">
+    <select id="fMelhor" onchange="renderMags()">
+      <option value="">Todas</option>
+      <option value="b">Melhor: mês B</option>
+      <option value="a">Melhor: mês A</option>
+    </select>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr>
+      <th style="min-width:230px">Revista</th>
+      <th id="th-ma">Mês A</th><th id="th-mb">Mês B</th>
+      <th>Δ</th><th>Δ %</th>
+      <th id="th-ua">Úteis A</th><th id="th-ub">Úteis B</th>
+      <th id="th-fa">FDS A</th><th id="th-fb">FDS B</th>
+      <th>Melhor</th>
+    </tr></thead>
+    <tbody id="tbody-mags"></tbody>
+  </table></div>
+  <p class="note">Ordenado por mês B (decrescente)</p>
+</div>
+<!-- ══ TAB BASE DE DADOS ══ -->
+<div class="panel" id="tab-base">
+  <div class="sheet-panel">
+    <div class="sheet-title">📄 Base de dados das planilhas</div>
+    <div class="sheet-form">
+      <input type="text" id="sheetMonth" placeholder="Nome do mês. Ex: Julho">
+      <input type="url" id="sheetUrl" placeholder="Cole o link da planilha Google Sheets ou CSV">
+      <button class="sheet-btn" type="button" onclick="salvarPlanilha()">Adicionar</button>
+      <button class="sheet-btn secondary" type="button" id="btn-sync-sheets" onclick="atualizarPlanilhas()">Atualizar informações</button>
+    </div>
+    <div class="sheet-list" id="sheet-list"></div>
+    <div class="sheet-status" id="sheet-status"></div>
+    <div class="sheet-history" id="sheet-history"></div>
+  </div>
+</div>
+<!-- ══ TAB ANÁLISE ══ -->
+<div class="panel" id="tab-analise">
+  <div class="analysis-actions">
+    <button class="sheet-btn" type="button" onclick="exportarComparativoCSV()">Exportar CSV</button>
+    <button class="sheet-btn secondary" type="button" onclick="window.print()">Imprimir relatório</button>
+  </div>
+  <div id="analysis-content"></div>
+</div>
+<script>
+// ──────────────────────────────────────────────────────────────
+// DATA
+// ──────────────────────────────────────────────────────────────
+const DAYS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+
+// Totais da linha "Total Geral" (linha 4 da planilha) — fonte oficial
+// Atualizado: 23/06/2026 (dados até o dia anterior)
+const DATA={
+  abril:{
+    t:1298,u:1211,f:87,
+    daily:[57,71,19,7,6,87,79,84,63,91,29,12,96,71,78,75,74,20,13,86,23,70,87],
+    dt:["Útil","Útil","Útil","FDS","FDS","Útil","Útil","Útil","Útil","Útil","FDS","FDS","Útil","Útil","Útil","Útil","Útil","FDS","FDS","Útil","Útil","Útil","Útil"],
+    label:"Abril",short:"ABR",color:"#2E75B6",light:"rgba(46,117,182,.18)",
+    dates:DAYS.map(d=>`${d}/4`)
+  },
+  maio:{
+    t:1567,u:1465,f:102,
+    daily:[41,12,9,109,104,87,85,76,16,17,100,140,101,101,81,19,12,117,93,89,77,64,17],
+    dt:["Útil","FDS","FDS","Útil","Útil","Útil","Útil","Útil","FDS","FDS","Útil","Útil","Útil","Útil","Útil","FDS","FDS","Útil","Útil","Útil","Útil","Útil","FDS"],
+    label:"Maio",short:"MAI",color:"#ED7D31",light:"rgba(237,125,49,.18)",
+    dates:DAYS.map(d=>`${d}/5`)
+  },
+  junho:{
+    t:1646,u:1553,f:93,
+    daily:[128,127,87,34,89,22,9,122,99,105,112,101,19,19,95,111,87,88,69,16,8,85,14],
+    dt:["Útil","Útil","Útil","Útil","Útil","FDS","FDS","Útil","Útil","Útil","Útil","Útil","FDS","FDS","Útil","Útil","Útil","Útil","Útil","FDS","FDS","Útil","Útil"],
+    label:"Junho",short:"JUN",color:"#375623",light:"rgba(55,86,35,.18)",
+    dates:DAYS.map(d=>`${d}/6`)
+  }
+};
+
+const MAG_ROWS=[{"n":"Veredas Do Direito","a":265,"m":277,"j":223,"au":246,"mu":265,"ju":206,"af":19,"mf":12,"jf":17},{"n":"Cadernos Cajuína","a":129,"m":196,"j":187,"au":118,"mu":183,"ju":177,"af":11,"mf":13,"jf":10},{"n":"Derecho Y Cambio Social","a":148,"m":168,"j":152,"au":143,"mu":163,"ju":142,"af":5,"mf":5,"jf":10},{"n":"Aposta Revista De Ciencias Sociales","a":26,"m":74,"j":142,"au":25,"mu":71,"ju":139,"af":1,"mf":3,"jf":3},{"n":"Artefactum","a":37,"m":60,"j":103,"au":36,"mu":56,"ju":99,"af":1,"mf":4,"jf":4},{"n":"Desarrollo Local Sostenible","a":69,"m":71,"j":93,"au":60,"mu":67,"ju":91,"af":9,"mf":4,"jf":2},{"n":"Revista Projeção E Docência","a":26,"m":47,"j":84,"au":22,"mu":43,"ju":79,"af":4,"mf":4,"jf":5},{"n":"Contribuciones A Las Ciencias Sociales","a":42,"m":42,"j":67,"au":35,"mu":41,"ju":65,"af":7,"mf":1,"jf":2},{"n":"Brazilian Journal Of Development","a":29,"m":44,"j":60,"au":28,"mu":43,"ju":55,"af":1,"mf":1,"jf":5},{"n":"Foco Interdisciplinary Journal","a":45,"m":87,"j":59,"au":39,"mu":83,"ju":53,"af":6,"mf":4,"jf":6},{"n":"Sem Descrição","a":19,"m":3,"j":59,"au":17,"mu":3,"ju":56,"af":2,"mf":0,"jf":3},{"n":"Revista Contemporânea","a":47,"m":38,"j":40,"au":43,"mu":34,"ju":36,"af":4,"mf":4,"jf":4},{"n":"Revista De Políticas Públicas & Cidades","a":42,"m":36,"j":39,"au":37,"mu":34,"ju":38,"af":5,"mf":2,"jf":1},{"n":"South Florida Journal Of Development","a":26,"m":20,"j":35,"au":26,"mu":19,"ju":33,"af":0,"mf":1,"jf":2},{"n":"Revista Educa","a":32,"m":27,"j":34,"au":31,"mu":26,"ju":34,"af":1,"mf":1,"jf":0},{"n":"Brazilian Journal Of Health Review","a":33,"m":60,"j":31,"au":31,"mu":50,"ju":28,"af":2,"mf":10,"jf":3},{"n":"Revista Outras Palavras","a":14,"m":18,"j":17,"au":13,"mu":15,"ju":17,"af":1,"mf":3,"jf":0},{"n":"Licencia&Acturas","a":6,"m":7,"j":22,"au":6,"mu":6,"ju":20,"af":0,"mf":1,"jf":2},{"n":"Revista Acadêmica Online","a":18,"m":26,"j":24,"au":17,"mu":25,"ju":24,"af":1,"mf":1,"jf":0},{"n":"Cuadernos De Educación Y Desarrollo","a":20,"m":14,"j":24,"au":17,"mu":12,"ju":20,"af":3,"mf":2,"jf":4},{"n":"Caderno Pedagógico","a":29,"m":30,"j":20,"au":29,"mu":26,"ju":16,"af":0,"mf":4,"jf":4},{"n":"Observatorio De La Economía Latinoamericana","a":22,"m":35,"j":17,"au":22,"mu":32,"ju":17,"af":0,"mf":3,"jf":0},{"n":"Revista Psipro","a":0,"m":11,"j":15,"au":0,"mu":11,"ju":14,"af":0,"mf":0,"jf":1},{"n":"Campo Jurídico","a":5,"m":3,"j":13,"au":5,"mu":3,"ju":13,"af":0,"mf":0,"jf":0},{"n":"Revista De Gestão Social E Ambiental","a":6,"m":3,"j":11,"au":6,"mu":3,"ju":10,"af":0,"mf":0,"jf":1},{"n":"Journal Of Law And Sustainable Development","a":7,"m":11,"j":7,"au":6,"mu":10,"ju":7,"af":1,"mf":1,"jf":0},{"n":"International Journal Of Health Management Review","a":4,"m":11,"j":7,"au":4,"mu":6,"ju":5,"af":0,"mf":5,"jf":2},{"n":"Brazilian Journal Of Biological Sciences","a":0,"m":5,"j":6,"au":0,"mu":5,"ju":6,"af":0,"mf":0,"jf":0},{"n":"Cadernos De Interpesquisas","a":0,"m":0,"j":4,"au":0,"mu":0,"ju":4,"af":0,"mf":0,"jf":0},{"n":"Journal Of Media Critiques","a":0,"m":0,"j":4,"au":0,"mu":0,"ju":3,"af":0,"mf":0,"jf":1},{"n":"Revista Gestão E Secretariado","a":0,"m":2,"j":4,"au":0,"mu":2,"ju":4,"af":0,"mf":0,"jf":0},{"n":"Revista Gestão E Conhecimento","a":0,"m":0,"j":3,"au":0,"mu":0,"ju":3,"af":0,"mf":0,"jf":0},{"n":"Europub Journal Of Health Research","a":3,"m":3,"j":3,"au":3,"mu":3,"ju":3,"af":0,"mf":0,"jf":0},{"n":"Journal Of Lifestyle And Sdgs Review","a":2,"m":10,"j":3,"au":2,"mu":10,"ju":3,"af":0,"mf":0,"jf":0},{"n":"Revista Educação E Linguagem","a":0,"m":4,"j":0,"au":0,"mu":4,"ju":0,"af":0,"mf":0,"jf":0},{"n":"Studies In Health Sciences","a":5,"m":0,"j":1,"au":4,"mu":0,"ju":1,"af":1,"mf":0,"jf":0}];
+
+
+// ---- Spreadsheet source management ----
+let sheetSources = [];
+let MAG_DATA = {};
+const MONTH_NAMES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+async function apiJson(url, options){
+  const res = await fetch(url, options);
+  const data = await res.json().catch(()=>({}));
+  if(!res.ok) throw new Error(data.error || 'Falha na comunicação com o servidor');
+  return data;
+}
+
+function setSheetStatus(msg, isError=false){
+  const el = document.getElementById('sheet-status');
+  if(!el) return;
+  el.textContent = msg || '';
+  el.style.color = isError ? 'var(--red)' : '#666';
+}
+
+function sheetInputId(prefix, index){ return `${prefix}-${index}`; }
+
+function sourceByKey(key){ return sheetSources.find(src=>monthKeyFromName(src.name)===key); }
+function hasMonthData(key){ const src=sourceByKey(key); return Boolean(src?.parsed || (DATA[key] && DATA[key].t>0)); }
+function monthStatus(key){ const src=sourceByKey(key); if(src?.lastError) return 'err'; if(hasMonthData(key)) return 'ok'; return 'empty'; }
+function statusLabel(src){ return sheetStatusInfo(src).text; }
+function normalizedSheetUrl(url){
+  return String(url || '').trim().replace(/#gid=/,'&gid=').replace(/\/$/,'');
+}
+function duplicateMonths(src){
+  const url = normalizedSheetUrl(src?.url);
+  if(!url) return [];
+  return sheetSources.filter(item=>item !== src && normalizedSheetUrl(item.url) === url).map(item=>item.name);
+}
+function sheetStatusInfo(src){
+  const dup = duplicateMonths(src);
+  if(src?.lastError) return { cls:'status-err', text:'Erro', title:src.lastError };
+  if(dup.length) return { cls:'status-dup', text:`Duplicado: ${dup.join(', ')}`, title:`Este link também está em: ${dup.join(', ')}` };
+  if(src?.parsed) return { cls:'status-ok', text:'Com dados', title:'Planilha lida com sucesso' };
+  if(src?.url) return { cls:'status-empty', text:'Link salvo', title:'Clique em Atualizar informações para ler a planilha' };
+  return { cls:'status-empty', text:'Sem link', title:'Cadastre o link da planilha' };
+}
+function formatDateTime(value){ return value ? new Date(value).toLocaleString('pt-BR') : '-'; }
+function updateDataWarning(){
+  const el=document.getElementById('data-warning'); if(!el) return;
+  const missing=[selA,selB].filter(key=>!hasMonthData(key)).map(key=>DATA[key]?.label || key);
+  if(missing.length){ el.textContent=`${missing.join(' e ')} ainda não tem dados carregados. Cadastre o link na Base de dados e clique em Atualizar informações.`; el.classList.add('show'); }
+  else { el.textContent=''; el.classList.remove('show'); }
+}
+
+function escAttr(value){
+  return String(value || '').replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+}
+
+function monthKeyFromName(name){
+  return String(name || '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,'');
+}
+
+function monthShort(name){
+  return String(name || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').slice(0,3).toUpperCase();
+}
+
+function sourceMonthNumber(name){
+  const key = monthKeyFromName(name);
+  return {janeiro:1,fevereiro:2,marco:3,abril:4,maio:5,junho:6,julho:7,agosto:8,setembro:9,outubro:10,novembro:11,dezembro:12}[key] || '';
+}
+
+function getMonthSources(){
+  const byKey = new Map(MONTH_NAMES.map(name => [monthKeyFromName(name), {name}]));
+  sheetSources.forEach(src=>{
+    const key = monthKeyFromName(src.name);
+    if(key) byKey.set(key, src);
+  });
+  return MONTH_NAMES.map(name => byKey.get(monthKeyFromName(name))).filter(Boolean);
+}
+
+function ensureSourceData(){
+  const palette = ['#4472C4','#A5A5A5','#FFC000','#2E75B6','#ED7D31','#375623','#8064A2','#00A6A6','#9E480E','#70AD47','#C55A11','#7F7F7F'];
+  getMonthSources().forEach((src,index)=>{
+    const key = monthKeyFromName(src.name);
+    const parsed = src.parsed;
+    if(parsed){
+      DATA[key] = {
+        ...parsed,
+        label: src.name,
+        short: parsed.short || monthShort(src.name),
+        color: DATA[key]?.color || palette[index % palette.length],
+        light: DATA[key]?.light || 'rgba(127,127,127,.18)'
+      };
+      MAG_DATA[key] = Array.isArray(parsed.mags) ? parsed.mags : [];
+      return;
+    }
+    if(!DATA[key]){
+      const color = palette[index % palette.length];
+      const monthNo = sourceMonthNumber(src.name);
+      DATA[key] = {
+        t:0,u:0,f:0,
+        daily:DAYS.map(()=>0),
+        dt:DAYS.map(()=> 'Útil'),
+        label:src.name,
+        short:monthShort(src.name),
+        color,
+        light:'rgba(127,127,127,.18)',
+        dates:DAYS.map(d=> monthNo ? `${d}/${monthNo}` : `${d}`)
+      };
+      MAG_DATA[key] = [];
+    } else {
+      DATA[key].label = src.name;
+      DATA[key].short = DATA[key].short || monthShort(src.name);
+      if(!MAG_DATA[key]) MAG_DATA[key] = [];
+    }
+  });
+}
+
+function ensureMonthSelection(){
+  const keys = getMonthSources().map(src=>monthKeyFromName(src.name)).filter(key=>DATA[key]);
+  if(!keys.length) return;
+  if(!DATA[selA]) selA = keys[0];
+  if(!DATA[selB]) selB = keys.find(key=>key!==selA) || keys[0];
+  if(selA===selB && keys.length>1) selB = keys.find(key=>key!==selA);
+}
+
+function renderMonthButtons(){
+  ensureSourceData();
+  ensureMonthSelection();
+  const sources = getMonthSources();
+  ['a','b'].forEach(slot=>{
+    const box = document.getElementById(`month-slot-${slot}`);
+    if(!box) return;
+    box.innerHTML = '';
+    sources.forEach(src=>{
+      const key = monthKeyFromName(src.name);
+      const btn = document.createElement('button');
+      btn.className = `month-btn ${monthStatus(key)==='ok'?'has-data':monthStatus(key)==='err'?'has-error':'no-data'}`;
+      btn.dataset.mes = key;
+      btn.type = 'button';
+      btn.textContent = DATA[key]?.label || src.name;
+      btn.title = monthStatus(key)==='ok' ? 'Mês com dados carregados' : monthStatus(key)==='err' ? 'Erro ao atualizar este mês' : 'Sem dados carregados';
+      btn.onclick = () => selMes(btn, slot);
+      box.appendChild(btn);
+    });
+  });
+  updateMonthButtons();
+}
+
+function updateMonthButtons(){
+  document.querySelectorAll('.month-btn').forEach(b=>{
+    b.classList.remove('sel-a','sel-b');
+    const slot = b.closest('#month-slot-a') ? 'a' : 'b';
+    if(slot==='a' && mesKey(b)===selA) b.classList.add('sel-a');
+    if(slot==='b' && mesKey(b)===selB) b.classList.add('sel-b');
+  });
+}
+
+function syncMonthsFromSources(){
+  renderMonthButtons();
+  rebuildAll();
+}
+
+
+function renderSheetSources(){
+  const list = document.getElementById('sheet-list');
+  const history = document.getElementById('sheet-history');
+  if(!list) return;
+  list.innerHTML = '';
+  if(history) history.innerHTML = '';
+  if(!sheetSources.length){
+    list.innerHTML = '<div class="sheet-status">Nenhuma planilha cadastrada ainda.</div>';
+    return;
+  }
+
+  const head = document.createElement('div');
+  head.className = 'sheet-head';
+  head.innerHTML = '<span>Mês</span><span>Link da planilha</span><span>Status</span><span>Total</span><span>Atualizado</span><span></span><span></span><span></span>';
+  list.appendChild(head);
+
+  sheetSources.forEach((src,index)=>{
+    const row = document.createElement('div');
+    row.className = 'sheet-row';
+    const st = src.lastError ? 'status-err' : (src.parsed ? 'status-ok' : 'status-empty');
+    const total = src.parsed ? src.parsed.t.toLocaleString('pt-BR') : '-';
+    row.innerHTML = `
+      <input class="sheet-edit" id="${sheetInputId('sheet-name',index)}" value="${escAttr(src.name)}" aria-label="Nome do mês">
+      <input class="sheet-edit" id="${sheetInputId('sheet-url',index)}" value="${escAttr(src.url)}" placeholder="Cole o link da planilha" aria-label="Link da planilha">
+      <span class="status-pill ${st}" title="${escAttr(info.title)}">${info.text}</span>
+      <span>${total}</span>
+      <span>${formatDateTime(src.lastSync)}</span>
+      <button class="sheet-btn secondary" type="button" onclick="abrirPlanilha(${index})">Abrir</button>
+      <button class="sheet-btn" type="button" onclick="salvarLinhaPlanilha(${index})">Salvar</button>
+      <button class="sheet-btn danger" type="button" onclick="removerPlanilha(${index})">Remover</button>`;
+    list.appendChild(row);
+  });
+
+  if(history){
+    const updates = (window.updateHistory || []).slice(-8).reverse();
+    if(updates.length){
+      history.innerHTML = '<div class="sheet-title">Histórico recente</div>';
+      updates.forEach(item=>{
+        const row=document.createElement('div');
+        row.className='history-row';
+        row.innerHTML=`<b>${item.name}</b><span>${item.ok?'Atualizado':'Erro: '+(item.error||'falha')}</span><span>Total: ${item.total ?? '-'}</span><span>${formatDateTime(item.at)}</span>`;
+        history.appendChild(row);
+      });
+    }
+  }
+}
+
+async function carregarPlanilhas(){
+  try{
+    const data = await apiJson('/api/sheets');
+    sheetSources = data.sources || [];
+    window.updateHistory = data.history || [];
+    renderSheetSources();
+    syncMonthsFromSources();
+  }catch(err){
+    setSheetStatus(err.message, true);
+  }
+}
+
+async function salvarPlanilha(){
+  const name = document.getElementById('sheetMonth').value.trim();
+  const url = document.getElementById('sheetUrl').value.trim();
+  if(!name || !url){
+    setSheetStatus('Informe o nome do mês e o link da planilha.', true);
+    return;
+  }
+  try{
+    const data = await apiJson('/api/sheets', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,url})
+    });
+    sheetSources = data.sources || [];
+    document.getElementById('sheetMonth').value = '';
+    document.getElementById('sheetUrl').value = '';
+    renderSheetSources();
+    syncMonthsFromSources();
+    setSheetStatus('Planilha adicionada na base de dados.');
+  }catch(err){
+    setSheetStatus(err.message, true);
+  }
+}
+
+function abrirPlanilha(index){
+  const url = sheetSources[index]?.url;
+  if(url) window.open(url, '_blank', 'noreferrer');
+  else setSheetStatus('Este mês ainda não tem link cadastrado.', true);
+}
+
+async function salvarLinhaPlanilha(index){
+  const current = sheetSources[index];
+  const name = document.getElementById(sheetInputId('sheet-name',index)).value.trim();
+  const url = document.getElementById(sheetInputId('sheet-url',index)).value.trim();
+  if(!name){
+    setSheetStatus('A linha precisa ter nome do mês.', true);
+    return;
+  }
+  try{
+    const data = await apiJson('/api/sheets', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({originalName:current.name,name,url})
+    });
+    sheetSources = data.sources || [];
+    window.updateHistory = data.history || [];
+    renderSheetSources();
+    syncMonthsFromSources();
+    setSheetStatus('Link atualizado na base de dados.');
+  }catch(err){
+    setSheetStatus(err.message, true);
+  }
+}
+
+async function removerPlanilha(index){
+  const current = sheetSources[index];
+  if(!current) return;
+  try{
+    const data = await apiJson('/api/sheets', {
+      method:'DELETE',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:current.name})
+    });
+    sheetSources = data.sources || [];
+    renderSheetSources();
+    syncMonthsFromSources();
+    setSheetStatus('Planilha removida da base de dados.');
+  }catch(err){
+    setSheetStatus(err.message, true);
+  }
+}
+
+async function atualizarPlanilhas(){
+  const btn = document.getElementById('btn-sync-sheets');
+  btn.disabled = true;
+  btn.textContent = 'Atualizando...';
+  setSheetStatus('Buscando dados das planilhas cadastradas...');
+  try{
+    const data = await apiJson('/api/sheets/update', {method:'POST'});
+    sheetSources = data.sources || [];
+    window.updateHistory = data.history || [];
+    renderSheetSources();
+    syncMonthsFromSources();
+    const ok = data.results.filter(r=>r.ok && !r.skipped).length;
+    const skipped = data.results.filter(r=>r.skipped).length;
+    const fail = data.results.length - ok - skipped;
+    setSheetStatus(`Atualização concluída: ${ok} planilha(s) lida(s), ${skipped} sem link, ${fail} com erro.`);
+  }catch(err){
+    setSheetStatus(err.message, true);
+  }finally{
+    btn.disabled = false;
+    btn.textContent = 'Atualizar informações';
+  }
+}
+function staticMagVal(row, key){ return {abril:'a',maio:'m',junho:'j'}[key] !== undefined ? row[{abril:'a',maio:'m',junho:'j'}[key]] : 0; }
+function staticMagUtil(row, key){ return {abril:'au',maio:'mu',junho:'ju'}[key] !== undefined ? row[{abril:'au',maio:'mu',junho:'ju'}[key]] : 0; }
+function staticMagFds(row, key){ return {abril:'af',maio:'mf',junho:'jf'}[key] !== undefined ? row[{abril:'af',maio:'mf',junho:'jf'}[key]] : 0; }
+function monthMags(key){
+  if(MAG_DATA[key] && MAG_DATA[key].length) return MAG_DATA[key];
+  if(['abril','maio','junho'].includes(key)) return MAG_ROWS.map(r=>({n:r.n,total:staticMagVal(r,key),util:staticMagUtil(r,key),fds:staticMagFds(r,key)}));
+  return [];
+}
+function combinedMagRows(){
+  const rows = new Map();
+  [selA,selB].forEach(key=>monthMags(key).forEach(item=>{
+    if(!rows.has(item.n)) rows.set(item.n,{n:item.n});
+  }));
+  return [...rows.values()];
+}
+function magFor(row, key){
+  return monthMags(key).find(item=>item.n===row.n) || {total:0,util:0,fds:0};
+}
+function magVal(row, key){ return magFor(row,key).total || 0; }
+function magUtil(row, key){ return magFor(row,key).util || 0; }
+function magFds(row, key){ return magFor(row,key).fds || 0; }
+
+// ──────────────────────────────────────────────────────────────
+// STATE
+// ──────────────────────────────────────────────────────────────
+let selA = 'abril', selB = 'junho';
+let charts = {};
+
+function mesKey(btn){ return btn.dataset.mes; }
+
+function selMes(btn, slot){
+  const key = mesKey(btn);
+  if(slot==='a'){
+    if(key===selB) selB=selA;
+    selA=key;
+  } else {
+    if(key===selA) selA=selB;
+    selB=key;
+  }
+  updateMonthButtons();
+  rebuildAll();
+}
+
+// ──────────────────────────────────────────────────────────────
+// REBUILD
+// ──────────────────────────────────────────────────────────────
+function rebuildAll(){
+  ensureSourceData();
+  ensureMonthSelection();
+  const A=DATA[selA], B=DATA[selB];
+  if(!A || !B) return;
+  buildKPIs(A,B);
+  buildAccum(A,B);
+  buildDonut(A,B);
+  buildTop(A,B);
+  buildDaily(A,B);
+  buildDiff(A,B);
+  buildDailyTable(A,B);
+  updateMagHeaders(A,B);
+  renderMags();
+  updateDataWarning();
+  renderAnalysis();
+}
+
+function compareLength(A,B){ return Math.max(A?.daily?.length || 0, B?.daily?.length || 0); }
+function compareIndexes(A,B){ return Array.from({length:compareLength(A,B)},(_,i)=>i); }
+function dayLabel(A,B,i){ return A?.days?.[i] || B?.days?.[i] || (i+1); }
+function valAt(arr,i){ return Number(arr?.[i] || 0); }
+function textAt(arr,i,fallback=''){ return arr?.[i] || fallback; }
+function countType(data,type){ return (data?.dt || []).filter(v=>v===type).length || 0; }
+function pct(a,b){ return a>0 ? ((b-a)/a*100).toFixed(1) : 0; }
+function sign(v){ return v>0?'+':''; }
+function badgeCls(v){ return v>=0?'pos':'neg'; }
+
+// ── KPIs ──
+function buildKPIs(A,B){
+  const pairs=[
+    ['📦 Total Artigos',   A.t, B.t,  ''],
+    ['💼 Dias Úteis',      A.u, B.u,  `15 dias úteis / mês`],
+    ['🏖️ Fins de Semana', A.f, B.f,  `6 fins de semana / mês`],
+    ['📊 Média / Dia Útil', +(A.u/Math.max(countType(A,'Útil'),1)).toFixed(1), +(B.u/Math.max(countType(B,'Útil'),1)).toFixed(1), 'artigos por dia útil'],
+    ['📊 Média / FDS',      +(A.f/Math.max(countType(A,'FDS'),1)).toFixed(1),  +(B.f/Math.max(countType(B,'FDS'),1)).toFixed(1),  'artigos por FDS'],
+  ];
+  const g=document.getElementById('kpis');
+  g.innerHTML='';
+  pairs.forEach(([lbl,av,bv,sub])=>{
+    const d=bv-av, p=pct(av,bv);
+    g.innerHTML+=`<div class="kpi-card">
+      <div class="kpi-lbl">${lbl}</div>
+      <div class="kpi-vals">
+        <span class="va">${av.toLocaleString('pt-BR')}</span>
+        <span class="sep">→</span>
+        <span class="vb">${bv.toLocaleString('pt-BR')}</span>
+        <span class="badge ${badgeCls(d)}">${sign(d)}${(typeof d==='number'&&!Number.isInteger(d))?d.toFixed(1):d} (${sign(p)}${p}%)</span>
+      </div>
+      <div class="kpi-sub">${sub || `<span class="dot dot-a"></span>${A.label} &nbsp; <span class="dot dot-b"></span>${B.label}`}</div>
+    </div>`;
+  });
+  // Winner card
+  const winner = B.t >= A.t ? B.label : A.label;
+  const winColor = B.t >= A.t ? 'var(--vd1)' : 'var(--az2)';
+  g.innerHTML+=`<div class="kpi-card vd">
+    <div class="kpi-lbl">🏆 Melhor Mês</div>
+    <div class="kpi-vals" style="margin-top:10px">
+      <span style="font-size:1.3rem;font-weight:800;color:${winColor}">${winner} ✅</span>
+    </div>
+    <div class="kpi-sub">${sign(B.t-A.t)}${B.t-A.t} artigos de diferença</div>
+  </div>`;
+}
+
+// ── Acumulado ──
+function buildAccum(A,B){
+  let ca=0,cb=0,arrA=[],arrB=[];
+  const indexes=compareIndexes(A,B);
+  indexes.forEach(i=>{ca+=valAt(A.daily,i);cb+=valAt(B.daily,i);arrA.push(ca);arrB.push(cb);});
+  document.getElementById('tit-acum').textContent=`📈 Evolução Acumulada — ${A.label} vs ${B.label}`;
+  destroyChart('cAcum');
+  charts.cAcum=new Chart(document.getElementById('cAcum'),{
+    type:'line',
+    data:{labels:indexes.map(i=>`Dia ${dayLabel(A,B,i)}`),datasets:[
+      {label:A.label,data:arrA,borderColor:A.color,backgroundColor:A.light,borderWidth:2.5,tension:.35,fill:true,pointRadius:2},
+      {label:B.label,data:arrB,borderColor:B.color,backgroundColor:B.light,borderWidth:2.5,tension:.35,fill:true,pointRadius:2}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'},tooltip:{mode:'index',intersect:false}},
+      scales:{y:{beginAtZero:true,grid:{color:'#e8eef4'}},x:{grid:{display:false}}}}
+  });
+}
+
+// ── Donut ──
+function buildDonut(A,B){
+  destroyChart('cDonut');
+  charts.cDonut=new Chart(document.getElementById('cDonut'),{
+    type:'doughnut',
+    data:{
+      labels:[`Úteis ${A.short}`,`FDS ${A.short}`,`Úteis ${B.short}`,`FDS ${B.short}`],
+      datasets:[{data:[A.u,A.f,B.u,B.f],
+        backgroundColor:[A.color,A.light.replace('.18','.6'),B.color,B.light.replace('.18','.6')],
+        hoverOffset:8}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'bottom'}}}
+  });
+}
+
+// ── Top 15 ──
+function buildTop(A,B){
+  const rows=combinedMagRows().sort((x,y)=>magVal(y,selB)-magVal(x,selB)).slice(0,15);
+  document.getElementById('tit-top').textContent=`🏆 Top 15 Revistas — ${A.label} vs ${B.label}`;
+  destroyChart('cTop');
+  charts.cTop=new Chart(document.getElementById('cTop'),{
+    type:'bar',
+    data:{
+      labels:rows.map(r=>r.n.length>32?r.n.slice(0,31)+'…':r.n),
+      datasets:[
+        {label:A.label,data:rows.map(r=>magVal(r,selA)),backgroundColor:A.color,borderRadius:3},
+        {label:B.label,data:rows.map(r=>magVal(r,selB)),backgroundColor:B.color,borderRadius:3}
+      ]
+    },
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'},tooltip:{mode:'index',intersect:false}},
+      scales:{x:{beginAtZero:true,grid:{color:'#e8eef4'}},y:{grid:{display:false},ticks:{font:{size:10}}}}}
+  });
+}
+
+// ── Daily bar ──
+function buildDaily(A,B){
+  const indexes=compareIndexes(A,B);
+  const bgA=indexes.map(i=>textAt(A.dt,i)==='FDS'?A.color+'99':A.color);
+  const bgB=indexes.map(i=>textAt(B.dt,i)==='FDS'?B.color+'99':B.color);
+  document.getElementById('tit-daily').textContent=`📅 Vendas Diárias — ${A.label} vs ${B.label}`;
+  destroyChart('cDaily');
+  charts.cDaily=new Chart(document.getElementById('cDaily'),{
+    type:'bar',
+    data:{labels:indexes.map(i=>`Dia ${dayLabel(A,B,i)}`),datasets:[
+      {label:A.label,data:indexes.map(i=>valAt(A.daily,i)),backgroundColor:bgA,borderRadius:3},
+      {label:B.label,data:indexes.map(i=>valAt(B.daily,i)),backgroundColor:bgB,borderRadius:3}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'},tooltip:{mode:'index',intersect:false,
+        callbacks:{afterLabel:ctx=>{const i=ctx.dataIndex;return ctx.datasetIndex===0?`Tipo: ${textAt(A.dt,i)}`:`Tipo: ${textAt(B.dt,i)}`;}}}},
+      scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'#e8eef4'}}}}
+  });
+}
+
+// ── Diff bar ──
+function buildDiff(A,B){
+  const indexes=compareIndexes(A,B);
+  const diffs=indexes.map(i=>valAt(B.daily,i)-valAt(A.daily,i));
+  const colors=diffs.map(v=>v>=0?'rgba(55,86,35,.8)':'rgba(192,0,0,.8)');
+  destroyChart('cDiff');
+  charts.cDiff=new Chart(document.getElementById('cDiff'),{
+    type:'bar',
+    data:{labels:indexes.map(i=>`Dia ${dayLabel(A,B,i)}`),datasets:[
+      {label:`${B.label} − ${A.label}`,data:diffs,backgroundColor:colors,borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{x:{grid:{display:false}},y:{grid:{color:'#e8eef4'},
+        ticks:{callback:v=>(v>0?'+':'')+v}}}}
+  });
+}
+
+// ── Daily table ──
+function buildDailyTable(A,B){
+  document.getElementById('th-dA1').textContent=`Data ${A.label}`;
+  document.getElementById('th-vA').textContent=`Vendas ${A.short}`;
+  document.getElementById('th-dB1').textContent=`Data ${B.label}`;
+  document.getElementById('th-vB').textContent=`Vendas ${B.short}`;
+  const tb=document.getElementById('tbody-daily');
+  tb.innerHTML='';
+  compareIndexes(A,B).forEach(i=>{
+    const av=valAt(A.daily,i), bv=valAt(B.daily,i);
+    const diff=bv-av, p=av>0?((diff/av)*100).toFixed(1):0;
+    const isFds=textAt(A.dt,i)==='FDS'||textAt(B.dt,i)==='FDS';
+    const tr=document.createElement('tr');
+    if(isFds) tr.className='fds-row';
+    tr.innerHTML=`
+      <td>${dayLabel(A,B,i)}</td>
+      <td class="col-a">${textAt(A.dates,i,'-')}</td>
+      <td><span class="${textAt(A.dt,i)==='FDS'?'fds-b':'util-b'}">${textAt(A.dt,i,'-')}</span></td>
+      <td class="col-a"><b>${av}</b></td>
+      <td class="col-b">${textAt(B.dates,i,'-')}</td>
+      <td><span class="${textAt(B.dt,i)==='FDS'?'fds-b':'util-b'}">${textAt(B.dt,i,'-')}</span></td>
+      <td class="col-b"><b>${bv}</b></td>
+      <td class="${diff>=0?'up':'dn'}">${sign(diff)}${diff}</td>
+      <td class="${diff>=0?'up':'dn'}">${sign(p)}${p}%</td>`;
+    tb.appendChild(tr);
+  });
+  const tr=document.createElement('tr');
+  tr.style.cssText='background:#1F4E79;color:#fff;font-weight:700';
+  const tA=A.t, tB=B.t, td=tB-tA, tp=pct(tA,tB);
+  tr.innerHTML=`<td style="color:#fff">TOTAL</td><td colspan="2"></td><td style="color:#BDD7EE">${tA}</td><td colspan="2"></td><td style="color:#a8d8a0">${tB}</td><td style="color:${td>=0?'#a8d8a0':'#ffaaaa'}">${sign(td)}${td}</td><td style="color:${td>=0?'#a8d8a0':'#ffaaaa'}">${sign(tp)}${tp}%</td>`;
+  document.getElementById('tbody-daily').appendChild(tr);
+}
+
+// ── Mag headers update ──
+function updateMagHeaders(A,B){
+  const labels=['th-ma','th-mb','th-ua','th-ub','th-fa','th-fb'];
+  const vals=[`Total ${A.short}`,`Total ${B.short}`,`Úteis ${A.short}`,`Úteis ${B.short}`,`FDS ${A.short}`,`FDS ${B.short}`];
+  labels.forEach((id,i)=>{ const el=document.getElementById(id); if(el) el.textContent=vals[i]; });
+}
+
+// ── Magazine table ──
+function renderMags(){
+
+  const txt=(document.getElementById('fTxt').value||'').toLowerCase();
+  const fil=document.getElementById('fMelhor').value;
+  const A=DATA[selA], B=DATA[selB];
+
+  let rows=combinedMagRows().filter(r=>r.n.toLowerCase().includes(txt));
+  if(fil==='b') rows=rows.filter(r=>magVal(r,selB)>=magVal(r,selA));
+  if(fil==='a') rows=rows.filter(r=>magVal(r,selA)>magVal(r,selB));
+  rows.sort((x,y)=>magVal(y,selB)-magVal(x,selB));
+
+  const tb=document.getElementById('tbody-mags');
+  tb.innerHTML='';
+  rows.forEach((r,i)=>{
+    const av=magVal(r,selA), bv=magVal(r,selB), d=bv-av, p=av>0?((d/av)*100).toFixed(1):0;
+    const bg=i%2===0?'#F8FBFF':'#fff';
+    const dcls=d>=0?'up':'dn';
+    const melhor=bv>av?`${B.label} ✅`:(av>bv?`${A.label} ✅`:'Empate');
+    const tr=document.createElement('tr');
+    tr.style.background=bg;
+    tr.innerHTML=`<td>${r.n}</td>
+      <td class="col-a">${av}</td><td class="col-b">${bv}</td>
+      <td class="${dcls}">${sign(d)}${d}</td>
+      <td class="${dcls}">${sign(p)}${p}%</td>
+      <td>${magUtil(r,selA)}</td><td>${magUtil(r,selB)}</td>
+      <td>${magFds(r,selA)}</td><td>${magFds(r,selB)}</td>
+      <td>${melhor}</td>`;
+    tb.appendChild(tr);
+  });
+}
+
+function bestDay(data, mode){
+  if(!data) return null;
+  const values=data.daily.map((v,i)=>({day:data.days?.[i] || i+1, value:v, date:data.dates[i]}));
+  return values.sort((a,b)=>mode==='min'?a.value-b.value:b.value-a.value)[0];
+}
+function topMagazineDiff(limit=10){
+  return combinedMagRows().map(row=>{
+    const a=magVal(row,selA), b=magVal(row,selB);
+    return {name:row.n,a,b,diff:b-a,pct:a>0?((b-a)/a*100):0};
+  }).sort((x,y)=>Math.abs(y.diff)-Math.abs(x.diff)).slice(0,limit);
+}
+function renderAnalysis(){
+  const box=document.getElementById('analysis-content'); if(!box) return;
+  const A=DATA[selA], B=DATA[selB]; if(!A || !B) return;
+  if(!hasMonthData(selA) || !hasMonthData(selB)){
+    box.innerHTML='<div class="empty-state">Selecione dois meses com dados carregados para ver a análise inteligente.</div>';
+    return;
+  }
+  const bestA=bestDay(A,'max'), bestB=bestDay(B,'max'), worstA=bestDay(A,'min'), worstB=bestDay(B,'min');
+  const diff=B.t-A.t;
+  const rows=topMagazineDiff(12);
+  box.innerHTML=`
+    <div class="analysis-grid">
+      <div class="analysis-card"><h3>Diferença total</h3><div class="big ${diff>=0?'up':'dn'}">${sign(diff)}${diff}</div><p>${A.label}: ${A.t} | ${B.label}: ${B.t}</p></div>
+      <div class="analysis-card"><h3>Melhor dia ${A.label}</h3><div class="big">${bestA.date}</div><p>${bestA.value} artigos</p></div>
+      <div class="analysis-card"><h3>Melhor dia ${B.label}</h3><div class="big">${bestB.date}</div><p>${bestB.value} artigos</p></div>
+      <div class="analysis-card"><h3>Piores dias</h3><p>${A.label}: ${worstA.date} (${worstA.value})</p><p>${B.label}: ${worstB.date} (${worstB.value})</p></div>
+    </div>
+    <div class="analysis-table"><table><thead><tr><th>Revista</th><th>${A.short}</th><th>${B.short}</th><th>Diferença</th><th>%</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.name}</td><td>${r.a}</td><td>${r.b}</td><td class="${r.diff>=0?'up':'dn'}">${sign(r.diff)}${r.diff}</td><td class="${r.diff>=0?'up':'dn'}">${sign(r.pct)}${r.pct.toFixed(1)}%</td></tr>`).join('')}</tbody></table></div>`;
+}
+function exportarComparativoCSV(){
+  const A=DATA[selA], B=DATA[selB]; if(!A || !B) return;
+  const lines=[['Tipo','Nome',A.label,B.label,'Diferenca','Percentual'].join(';')];
+  lines.push(['Total','Artigos',A.t,B.t,B.t-A.t,pct(A.t,B.t)+'%'].join(';'));
+  combinedMagRows().forEach(row=>{
+    const a=magVal(row,selA), b=magVal(row,selB), d=b-a, p=a>0?((d/a)*100).toFixed(1):'0.0';
+    lines.push(['Revista',`"${row.n.replaceAll('"','""')}"`,a,b,d,p+'%'].join(';'));
+  });
+  const blob=new Blob([lines.join('\n')],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download=`comparativo_${A.short}_${B.short}.csv`; a.click(); URL.revokeObjectURL(url);
+}
+// ── utils ──
+function destroyChart(id){
+  if(charts[id]){ charts[id].destroy(); delete charts[id]; }
+}
+function showTab(id, btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── INIT ──
+window.addEventListener('load', ()=>{
+  renderMonthButtons();
+  rebuildAll();
+  carregarPlanilhas();
+});
+
+// ──────────────────────────────────────────────────────────────
+// BOTÃO DE ATUALIZAÇÃO — aciona o Claude Cowork para atualizar (D-1)
+// ──────────────────────────────────────────────────────────────
+function atualizarDados() {
+  const btn = document.getElementById('btn-refresh');
+  const statusEl = document.getElementById('refresh-status');
+
+  // Calcula D-1 para mostrar no status
+  const ontem = new Date(); ontem.setDate(ontem.getDate() - 1);
+  const ontemStr = `${String(ontem.getDate()).padStart(2,'0')}/${String(ontem.getMonth()+1).padStart(2,'0')}/${ontem.getFullYear()}`;
+
+  if (typeof sendPrompt === 'function') {
+    // Contexto Claude Cowork — envia comando para o Claude atualizar
+    btn.disabled = true;
+    btn.innerHTML = '⏳ Aguardando Claude...';
+    statusEl.textContent = `Solicitando dados de ${ontemStr}...`;
+    sendPrompt('atualizar o painel');
+    // O Claude irá buscar os dados D-1, atualizar o arquivo e apresentar o painel atualizado.
+    // O botão será reativado quando a página for reaberta com os novos dados.
+  } else {
+    // Fora do Cowork: orienta o usuário
+    btn.disabled = true;
+    btn.innerHTML = '📋 Comando copiado!';
+    statusEl.textContent = 'Cole no Claude Cowork para atualizar com dados de ' + ontemStr;
+    navigator.clipboard.writeText('atualizar o painel').catch(() => {});
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = '🔄 Atualizar';
+      statusEl.textContent = '';
+    }, 4000);
+  }
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

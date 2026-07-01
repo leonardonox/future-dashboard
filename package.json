@@ -1,0 +1,16 @@
+﻿{
+    "name":  "dashboard-vendas-maio-junho",
+    "version":  "1.0.0",
+    "private":  true,
+    "description":  "Dashboard comparativo de vendas servido por porta para deploy no Render.",
+    "main":  "server.js",
+    "scripts":  {
+                    "start":  "node server.js"
+                },
+    "engines":  {
+                    "node":  "\u003e=18"
+                },
+    "dependencies":  {
+                         "pg":  "^8.12.0"
+                     }
+}
