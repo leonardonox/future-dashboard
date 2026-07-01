@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: vina-dashboard
+    name: future-dashboard
     runtime: node
     plan: free
     buildCommand: npm install

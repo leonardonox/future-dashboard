@@ -17,7 +17,7 @@ O jeito mais simples é subir este projeto para o GitHub e criar um Blueprint no
 
 O Render vai criar:
 
-- Web Service: `vina-dashboard`
+- Web Service: `future-dashboard`
 - Variável `DATABASE_URL` para voce preencher com a URL interna do PostgreSQL
 
 Configuração equivalente, caso faça manualmente:
