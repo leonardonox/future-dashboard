@@ -5,7 +5,7 @@
       "url": "",
       "internal": false,
       "createdAt": "2026-07-01T16:23:45.888Z",
-      "lastSync": "2026-07-01T16:56:26.085Z",
+      "lastSync": "2026-07-01T18:01:07.983Z",
       "lastError": "",
       "note": "",
       "lastBytes": 0,
@@ -16,7 +16,7 @@
       "url": "",
       "internal": false,
       "createdAt": "2026-07-01T16:23:45.888Z",
-      "lastSync": "2026-07-01T16:56:26.086Z",
+      "lastSync": "2026-07-01T18:01:07.983Z",
       "lastError": "",
       "note": "",
       "lastBytes": 0,
@@ -27,7 +27,7 @@
       "url": "",
       "internal": false,
       "createdAt": "2026-07-01T16:23:45.888Z",
-      "lastSync": "2026-07-01T16:56:26.086Z",
+      "lastSync": "2026-07-01T18:01:07.983Z",
       "lastError": "",
       "note": "",
       "lastBytes": 0,
@@ -38,7 +38,7 @@
       "url": "https://docs.google.com/spreadsheets/d/1C9lccw87prj7RPyPE1R_IpvDuk3eucIY/edit?gid=10296372#gid=10296372",
       "internal": true,
       "createdAt": "2026-06-23T00:00:00.000Z",
-      "lastSync": "2026-07-01T16:56:26.912Z",
+      "lastSync": "2026-07-01T18:01:10.608Z",
       "lastError": "",
       "note": "Dados atuais ja embutidos no dashboard",
       "lastBytes": 8818,
@@ -48,6 +48,12 @@
         "t": 1822,
         "u": 1709,
         "f": 113,
+        "metaMonth": 1883,
+        "metaPartial": 1883,
+        "diffMeta": -61,
+        "attendPartial": 0.9676048858204992,
+        "attendMonth": 0.9676048858204992,
+        "d1": 105,
         "daily": [
           57,
           71,
@@ -183,325 +189,769 @@
             "n": "Veredas Do Direito",
             "total": 371,
             "util": 348,
-            "fds": 23
+            "fds": 23,
+            "d1": 14,
+            "metaMonth": 305,
+            "metaPartial": 305,
+            "diffMeta": 66,
+            "attendPartial": 1.2163934426229508,
+            "attendMonth": 1.2163934426229508
           },
           {
             "n": "Derecho Y Cambio Social",
             "total": 244,
             "util": 236,
-            "fds": 8
+            "fds": 8,
+            "d1": 22,
+            "metaMonth": 271,
+            "metaPartial": 271,
+            "diffMeta": -27,
+            "attendPartial": 0.9003690036900369,
+            "attendMonth": 0.9003690036900369
           },
           {
             "n": "Cadernos Cajuína",
             "total": 205,
             "util": 191,
-            "fds": 14
+            "fds": 14,
+            "d1": 7,
+            "metaMonth": 241,
+            "metaPartial": 241,
+            "diffMeta": -36,
+            "attendPartial": 0.8506224066390041,
+            "attendMonth": 0.8506224066390041
           },
           {
             "n": "Desarrollo Local Sostenible",
             "total": 105,
             "util": 94,
-            "fds": 11
+            "fds": 11,
+            "d1": 4,
+            "metaMonth": 125,
+            "metaPartial": 125,
+            "diffMeta": -20,
+            "attendPartial": 0.84,
+            "attendMonth": 0.84
           },
           {
             "n": "Contribuciones A Las Ciencias Sociales",
             "total": 72,
             "util": 65,
-            "fds": 7
+            "fds": 7,
+            "d1": 9,
+            "metaMonth": 78,
+            "metaPartial": 78,
+            "diffMeta": -6,
+            "attendPartial": 0.9230769230769231,
+            "attendMonth": 0.9230769230769231
           },
           {
             "n": "Foco Interdisciplinary Journal",
             "total": 67,
             "util": 60,
-            "fds": 7
+            "fds": 7,
+            "d1": 3,
+            "metaMonth": 86,
+            "metaPartial": 86,
+            "diffMeta": -19,
+            "attendPartial": 0.7790697674418605,
+            "attendMonth": 0.7790697674418605
           },
           {
             "n": "Revista De Políticas Públicas & Cidades",
             "total": 62,
             "util": 56,
-            "fds": 6
+            "fds": 6,
+            "d1": 2,
+            "metaMonth": 52,
+            "metaPartial": 52,
+            "diffMeta": 10,
+            "attendPartial": 1.1923076923076923,
+            "attendMonth": 1.1923076923076923
           },
           {
             "n": "Revista Contemporânea",
             "total": 60,
             "util": 54,
-            "fds": 6
+            "fds": 6,
+            "d1": 2,
+            "metaMonth": 71,
+            "metaPartial": 71,
+            "diffMeta": -11,
+            "attendPartial": 0.8450704225352113,
+            "attendMonth": 0.8450704225352113
           },
           {
             "n": "Artefactum",
             "total": 59,
             "util": 57,
-            "fds": 2
+            "fds": 2,
+            "d1": 4,
+            "metaMonth": 83,
+            "metaPartial": 83,
+            "diffMeta": -24,
+            "attendPartial": 0.7108433734939759,
+            "attendMonth": 0.7108433734939759
           },
           {
             "n": "Brazilian Journal Of Health Review",
             "total": 50,
             "util": 46,
-            "fds": 4
+            "fds": 4,
+            "d1": 3,
+            "metaMonth": 60,
+            "metaPartial": 60,
+            "diffMeta": -10,
+            "attendPartial": 0.8333333333333334,
+            "attendMonth": 0.8333333333333334
           },
           {
             "n": "Brazilian Journal Of Development",
             "total": 48,
             "util": 47,
-            "fds": 1
+            "fds": 1,
+            "d1": 5,
+            "metaMonth": 68,
+            "metaPartial": 68,
+            "diffMeta": -20,
+            "attendPartial": 0.7058823529411765,
+            "attendMonth": 0.7058823529411765
           },
           {
             "n": "Caderno Pedagógico",
             "total": 43,
             "util": 42,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 51,
+            "metaPartial": 51,
+            "diffMeta": -8,
+            "attendPartial": 0.8431372549019608,
+            "attendMonth": 0.8431372549019608
           },
           {
             "n": "Sem Descrição",
             "total": 43,
             "util": 39,
-            "fds": 4
+            "fds": 4,
+            "d1": 7,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 41,
+            "attendPartial": 21.5,
+            "attendMonth": 21.5
           },
           {
             "n": "Revista Projeção E Docência",
             "total": 37,
             "util": 32,
-            "fds": 5
+            "fds": 5,
+            "d1": 2,
+            "metaMonth": 45,
+            "metaPartial": 45,
+            "diffMeta": -8,
+            "attendPartial": 0.8222222222222222,
+            "attendMonth": 0.8222222222222222
           },
           {
             "n": "Aposta Revista De Ciencias Sociales",
             "total": 36,
             "util": 34,
-            "fds": 2
+            "fds": 2,
+            "d1": 0,
+            "metaMonth": 17,
+            "metaPartial": 17,
+            "diffMeta": 19,
+            "attendPartial": 2.1176470588235294,
+            "attendMonth": 2.1176470588235294
           },
           {
             "n": "South Florida Journal Of Development",
             "total": 36,
             "util": 36,
-            "fds": 0
+            "fds": 0,
+            "d1": 4,
+            "metaMonth": 13,
+            "metaPartial": 13,
+            "diffMeta": 23,
+            "attendPartial": 2.769230769230769,
+            "attendMonth": 2.769230769230769
           },
           {
             "n": "Observatorio De La Economía Latinoamericana",
             "total": 34,
             "util": 34,
-            "fds": 0
+            "fds": 0,
+            "d1": 2,
+            "metaMonth": 39,
+            "metaPartial": 39,
+            "diffMeta": -5,
+            "attendPartial": 0.8717948717948718,
+            "attendMonth": 0.8717948717948718
           },
           {
             "n": "Revista Educa - Revista Multidisciplinar Da Faculdade Católica Paulista",
             "total": 32,
             "util": 31,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 31,
+            "metaPartial": 31,
+            "diffMeta": 1,
+            "attendPartial": 1.032258064516129,
+            "attendMonth": 1.032258064516129
           },
           {
             "n": "Revista Acadêmica Online",
             "total": 26,
             "util": 24,
-            "fds": 2
+            "fds": 2,
+            "d1": 1,
+            "metaMonth": 21,
+            "metaPartial": 21,
+            "diffMeta": 5,
+            "attendPartial": 1.2380952380952381,
+            "attendMonth": 1.2380952380952381
           },
           {
             "n": "Cuadernos De Educación Y Desarrollo",
             "total": 25,
             "util": 22,
-            "fds": 3
+            "fds": 3,
+            "d1": 1,
+            "metaMonth": 24,
+            "metaPartial": 24,
+            "diffMeta": 1,
+            "attendPartial": 1.0416666666666667,
+            "attendMonth": 1.0416666666666667
           },
           {
             "n": "Revista Outras Palavras",
             "total": 24,
             "util": 23,
-            "fds": 1
+            "fds": 1,
+            "d1": 4,
+            "metaMonth": 27,
+            "metaPartial": 27,
+            "diffMeta": -3,
+            "attendPartial": 0.8888888888888888,
+            "attendMonth": 0.8888888888888888
           },
           {
             "n": "Licencia&Acturas",
             "total": 19,
             "util": 19,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 17,
+            "metaPartial": 17,
+            "diffMeta": 2,
+            "attendPartial": 1.1176470588235294,
+            "attendMonth": 1.1176470588235294
           },
           {
             "n": "Journal Of Law And Sustainable Development",
             "total": 13,
             "util": 12,
-            "fds": 1
+            "fds": 1,
+            "d1": 3,
+            "metaMonth": 12,
+            "metaPartial": 12,
+            "diffMeta": 1,
+            "attendPartial": 1.0833333333333333,
+            "attendMonth": 1.0833333333333333
           },
           {
             "n": "Campo Jurídico",
             "total": 11,
             "util": 11,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 19,
+            "metaPartial": 19,
+            "diffMeta": -8,
+            "attendPartial": 0.5789473684210527,
+            "attendMonth": 0.5789473684210527
           },
           {
             "n": "Brazilian Journal Of Biological Sciences",
             "total": 10,
             "util": 8,
-            "fds": 2
+            "fds": 2,
+            "d1": 1,
+            "metaMonth": 6,
+            "metaPartial": 6,
+            "diffMeta": 4,
+            "attendPartial": 1.6666666666666667,
+            "attendMonth": 1.6666666666666667
           },
           {
             "n": "Revista Brasileira De Negócios E Desenvolvimento Regional",
             "total": 7,
             "util": 6,
-            "fds": 1
+            "fds": 1,
+            "d1": 1,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 5,
+            "attendPartial": 3.5,
+            "attendMonth": 3.5
           },
           {
             "n": "Revista Educação E Linguagem",
             "total": 7,
             "util": 7,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 12,
+            "metaPartial": 12,
+            "diffMeta": -5,
+            "attendPartial": 0.5833333333333334,
+            "attendMonth": 0.5833333333333334
           },
           {
             "n": "International Journal Of Health Management Review",
             "total": 6,
             "util": 6,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 10,
+            "metaPartial": 10,
+            "diffMeta": -4,
+            "attendPartial": 0.6,
+            "attendMonth": 0.6
           },
           {
             "n": "Revista De Gestão Social E Ambiental",
             "total": 6,
             "util": 6,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 11,
+            "metaPartial": 11,
+            "diffMeta": -5,
+            "attendPartial": 0.5454545454545454,
+            "attendMonth": 0.5454545454545454
           },
           {
             "n": "Europub Journal Of Health Research",
             "total": 5,
             "util": 5,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": 1,
+            "attendPartial": 1.25,
+            "attendMonth": 1.25
           },
           {
             "n": "Revista Gestão E Secretariado",
             "total": 5,
             "util": 5,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 11,
+            "metaPartial": 11,
+            "diffMeta": -6,
+            "attendPartial": 0.45454545454545453,
+            "attendMonth": 0.45454545454545453
           },
           {
             "n": "Studies In Health Sciences",
             "total": 5,
             "util": 4,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 3,
+            "attendPartial": 2.5,
+            "attendMonth": 2.5
           },
           {
             "n": "Brazilian Journal Of Business",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 2,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 4,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Journal Archives Of Health",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 4,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Journal Of Lifestyle And Sdgs Review",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 7,
+            "metaPartial": 7,
+            "diffMeta": -3,
+            "attendPartial": 0.5714285714285714,
+            "attendMonth": 0.5714285714285714
           },
           {
             "n": "Cognitionis Scientific Journal",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 2,
+            "attendPartial": 3,
+            "attendMonth": 3
           },
           {
             "n": "Revista Campo Da História",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": -1,
+            "attendPartial": 0.75,
+            "attendMonth": 0.75
           },
           {
             "n": "Revista Caribeña De Ciencias Sociales",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 3,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista De Educação Do Unideau",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 3,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Projeção, Direito E Sociedade",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": -1,
+            "attendPartial": 0.75,
+            "attendMonth": 0.75
           },
           {
             "n": "Revista Psipro",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 5,
+            "metaPartial": 5,
+            "diffMeta": -2,
+            "attendPartial": 0.6,
+            "attendMonth": 0.6
           },
           {
             "n": "International Contemporary Management Review",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "International Journal Of Professional Business Review",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 7,
+            "metaPartial": 7,
+            "diffMeta": -5,
+            "attendPartial": 0.2857142857142857,
+            "attendMonth": 0.2857142857142857
           },
           {
             "n": "Interpersona: An International Journal",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": -2,
+            "attendPartial": 0.5,
+            "attendMonth": 0.5
           },
           {
             "n": "Journal Of Media Critiques",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Revista Interfaces Da Saúde",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "South Florida Journal Of Health",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Brazilian Applied Science Review",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Brazilian Journal Of Health And Biological Science",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Brazilian Journal Of Residency & Medical Education",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Observatorio Iberoamericano Del Desarrollo Local Y La Economía Social",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Eletrônica De Direito, Democracia E Sociedade",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Tecnologias Em Projeção",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Studies In Engineering And Exact Sciences",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
+          },
+          {
+            "n": "Studies In Education Sciences",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 10,
+            "metaPartial": 10,
+            "diffMeta": -10,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Portal Esabere",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 5,
+            "metaPartial": 5,
+            "diffMeta": -5,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Revista Gestão E Conhecimento",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": -4,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Studies In Social Sciences Review",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": -2,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Turismo & Desarrollo Local Sostenible",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": -2,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Revista Filosofia Capital",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Latin American Journal Of Development",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Naturae",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Europub Journal Of Education Research",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Ibero-Americana De Ciências Ambientais",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
           }
         ]
       }
@@ -511,7 +961,7 @@
       "url": "https://docs.google.com/spreadsheets/d/1CP_Pd41rX4Qje7DGjVD4hzpf_1UgXPww/edit?gid=10296372#gid=10296372",
       "internal": true,
       "createdAt": "2026-06-23T00:00:00.000Z",
-      "lastSync": "2026-07-01T16:56:27.571Z",
+      "lastSync": "2026-07-01T18:01:11.641Z",
       "lastError": "",
       "note": "Dados atuais ja embutidos no dashboard",
       "lastBytes": 9407,
@@ -521,6 +971,12 @@
         "t": 2015,
         "u": 1869,
         "f": 146,
+        "metaMonth": 2021,
+        "metaPartial": 2021,
+        "diffMeta": 39,
+        "attendPartial": 0.9970311726867888,
+        "attendMonth": 0.9970311726867888,
+        "d1": 11,
         "daily": [
           41,
           12,
@@ -660,379 +1116,841 @@
             "n": "Veredas Do Direito",
             "total": 344,
             "util": 325,
-            "fds": 19
+            "fds": 19,
+            "d1": 2,
+            "metaMonth": 370,
+            "metaPartial": 370,
+            "diffMeta": -26,
+            "attendPartial": 0.9297297297297298,
+            "attendMonth": 0.9297297297297298
           },
           {
             "n": "Derecho Y Cambio Social",
             "total": 232,
             "util": 220,
-            "fds": 12
+            "fds": 12,
+            "d1": 2,
+            "metaMonth": 271,
+            "metaPartial": 271,
+            "diffMeta": -39,
+            "attendPartial": 0.8560885608856088,
+            "attendMonth": 0.8560885608856088
           },
           {
             "n": "Cadernos Cajuína",
             "total": 245,
             "util": 231,
-            "fds": 14
+            "fds": 14,
+            "d1": 0,
+            "metaMonth": 230,
+            "metaPartial": 230,
+            "diffMeta": 15,
+            "attendPartial": 1.065217391304348,
+            "attendMonth": 1.065217391304348
           },
           {
             "n": "Desarrollo Local Sostenible",
             "total": 100,
             "util": 93,
-            "fds": 7
+            "fds": 7,
+            "d1": 1,
+            "metaMonth": 125,
+            "metaPartial": 125,
+            "diffMeta": -25,
+            "attendPartial": 0.8,
+            "attendMonth": 0.8
           },
           {
             "n": "Artefactum",
             "total": 94,
             "util": 89,
-            "fds": 5
+            "fds": 5,
+            "d1": 0,
+            "metaMonth": 83,
+            "metaPartial": 83,
+            "diffMeta": 11,
+            "attendPartial": 1.1325301204819278,
+            "attendMonth": 1.1325301204819278
           },
           {
             "n": "Contribuciones A Las Ciencias Sociales",
             "total": 76,
             "util": 69,
-            "fds": 7
+            "fds": 7,
+            "d1": 0,
+            "metaMonth": 78,
+            "metaPartial": 78,
+            "diffMeta": -2,
+            "attendPartial": 0.9743589743589743,
+            "attendMonth": 0.9743589743589743
           },
           {
             "n": "Foco Interdisciplinary Journal",
             "total": 132,
             "util": 123,
-            "fds": 9
+            "fds": 9,
+            "d1": 0,
+            "metaMonth": 67,
+            "metaPartial": 67,
+            "diffMeta": 65,
+            "attendPartial": 1.9701492537313432,
+            "attendMonth": 1.9701492537313432
           },
           {
             "n": "Revista De Políticas Públicas & Cidades",
             "total": 47,
             "util": 43,
-            "fds": 4
+            "fds": 4,
+            "d1": 0,
+            "metaMonth": 62,
+            "metaPartial": 62,
+            "diffMeta": -15,
+            "attendPartial": 0.7580645161290323,
+            "attendMonth": 0.7580645161290323
           },
           {
             "n": "Aposta Revista De Ciencias Sociales",
             "total": 105,
             "util": 100,
-            "fds": 5
+            "fds": 5,
+            "d1": 0,
+            "metaMonth": 60,
+            "metaPartial": 60,
+            "diffMeta": 45,
+            "attendPartial": 1.75,
+            "attendMonth": 1.75
           },
           {
             "n": "Brazilian Journal Of Health Review",
             "total": 88,
             "util": 71,
-            "fds": 17
+            "fds": 17,
+            "d1": 2,
+            "metaMonth": 60,
+            "metaPartial": 60,
+            "diffMeta": 28,
+            "attendPartial": 1.4666666666666666,
+            "attendMonth": 1.4666666666666666
           },
           {
             "n": "Revista Contemporânea",
             "total": 49,
             "util": 43,
-            "fds": 6
+            "fds": 6,
+            "d1": 0,
+            "metaMonth": 60,
+            "metaPartial": 60,
+            "diffMeta": -11,
+            "attendPartial": 0.8166666666666667,
+            "attendMonth": 0.8166666666666667
           },
           {
             "n": "Revista Educa - Revista Multidisciplinar Da Faculdade Católica Paulista",
             "total": 38,
             "util": 35,
-            "fds": 3
+            "fds": 3,
+            "d1": 0,
+            "metaMonth": 60,
+            "metaPartial": 60,
+            "diffMeta": -22,
+            "attendPartial": 0.6333333333333333,
+            "attendMonth": 0.6333333333333333
           },
           {
             "n": "Brazilian Journal Of Development",
             "total": 69,
             "util": 67,
-            "fds": 2
+            "fds": 2,
+            "d1": 1,
+            "metaMonth": 55,
+            "metaPartial": 55,
+            "diffMeta": 14,
+            "attendPartial": 1.2545454545454546,
+            "attendMonth": 1.2545454545454546
           },
           {
             "n": "Revista Projeção E Docência",
             "total": 64,
             "util": 60,
-            "fds": 4
+            "fds": 4,
+            "d1": 0,
+            "metaMonth": 50,
+            "metaPartial": 50,
+            "diffMeta": 14,
+            "attendPartial": 1.28,
+            "attendMonth": 1.28
           },
           {
             "n": "Caderno Pedagógico",
             "total": 34,
             "util": 29,
-            "fds": 5
+            "fds": 5,
+            "d1": 0,
+            "metaMonth": 45,
+            "metaPartial": 45,
+            "diffMeta": -11,
+            "attendPartial": 0.7555555555555555,
+            "attendMonth": 0.7555555555555555
           },
           {
             "n": "Revista Outras Palavras",
             "total": 36,
             "util": 33,
-            "fds": 3
+            "fds": 3,
+            "d1": 1,
+            "metaMonth": 37,
+            "metaPartial": 37,
+            "diffMeta": -1,
+            "attendPartial": 0.972972972972973,
+            "attendMonth": 0.972972972972973
           },
           {
             "n": "Observatorio De La Economía Latinoamericana",
             "total": 47,
             "util": 45,
-            "fds": 2
+            "fds": 2,
+            "d1": 0,
+            "metaMonth": 34,
+            "metaPartial": 34,
+            "diffMeta": 13,
+            "attendPartial": 1.3823529411764706,
+            "attendMonth": 1.3823529411764706
           },
           {
             "n": "Revista Acadêmica Online",
             "total": 36,
             "util": 34,
-            "fds": 2
+            "fds": 2,
+            "d1": 0,
+            "metaMonth": 30,
+            "metaPartial": 30,
+            "diffMeta": 6,
+            "attendPartial": 1.2,
+            "attendMonth": 1.2
           },
           {
             "n": "Licencia&Acturas",
             "total": 10,
             "util": 9,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 25,
+            "metaPartial": 25,
+            "diffMeta": -15,
+            "attendPartial": 0.4,
+            "attendMonth": 0.4
           },
           {
             "n": "Campo Jurídico",
             "total": 5,
             "util": 4,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 25,
+            "metaPartial": 25,
+            "diffMeta": -20,
+            "attendPartial": 0.2,
+            "attendMonth": 0.2
           },
           {
             "n": "Cuadernos De Educación Y Desarrollo",
             "total": 25,
             "util": 22,
-            "fds": 3
+            "fds": 3,
+            "d1": 1,
+            "metaMonth": 24,
+            "metaPartial": 24,
+            "diffMeta": 1,
+            "attendPartial": 1.0416666666666667,
+            "attendMonth": 1.0416666666666667
           },
           {
             "n": "Revista Educação E Linguagem",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 17,
+            "metaPartial": 17,
+            "diffMeta": -13,
+            "attendPartial": 0.23529411764705882,
+            "attendMonth": 0.23529411764705882
           },
           {
             "n": "Journal Of Law And Sustainable Development",
             "total": 12,
             "util": 11,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 14,
+            "metaPartial": 14,
+            "diffMeta": -2,
+            "attendPartial": 0.8571428571428571,
+            "attendMonth": 0.8571428571428571
           },
           {
             "n": "South Florida Journal Of Development",
             "total": 33,
             "util": 29,
-            "fds": 4
+            "fds": 4,
+            "d1": 0,
+            "metaMonth": 13,
+            "metaPartial": 13,
+            "diffMeta": 20,
+            "attendPartial": 2.5384615384615383,
+            "attendMonth": 2.5384615384615383
           },
           {
             "n": "Revista Psipro",
             "total": 14,
             "util": 14,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 13,
+            "metaPartial": 13,
+            "diffMeta": 1,
+            "attendPartial": 1.0769230769230769,
+            "attendMonth": 1.0769230769230769
+          },
+          {
+            "n": "Portal Esabere",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 12,
+            "metaPartial": 12,
+            "diffMeta": -12,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista De Gestão Social E Ambiental",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 11,
+            "metaPartial": 11,
+            "diffMeta": -8,
+            "attendPartial": 0.2727272727272727,
+            "attendMonth": 0.2727272727272727
           },
           {
             "n": "Revista Gestão E Secretariado",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 11,
+            "metaPartial": 11,
+            "diffMeta": -9,
+            "attendPartial": 0.18181818181818182,
+            "attendMonth": 0.18181818181818182
           },
           {
             "n": "International Journal Of Health Management Review",
             "total": 16,
             "util": 15,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 10,
+            "metaPartial": 10,
+            "diffMeta": 6,
+            "attendPartial": 1.6,
+            "attendMonth": 1.6
           },
           {
             "n": "Studies In Education Sciences",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 10,
+            "metaPartial": 10,
+            "diffMeta": -7,
+            "attendPartial": 0.3,
+            "attendMonth": 0.3
           },
           {
             "n": "Journal Of Lifestyle And Sdgs Review",
             "total": 12,
             "util": 12,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 9,
+            "metaPartial": 9,
+            "diffMeta": 3,
+            "attendPartial": 1.3333333333333333,
+            "attendMonth": 1.3333333333333333
           },
           {
             "n": "International Journal Of Professional Business Review",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 7,
+            "metaPartial": 7,
+            "diffMeta": -5,
+            "attendPartial": 0.2857142857142857,
+            "attendMonth": 0.2857142857142857
           },
           {
             "n": "Brazilian Journal Of Biological Sciences",
             "total": 6,
             "util": 5,
-            "fds": 1
+            "fds": 1,
+            "d1": 1,
+            "metaMonth": 6,
+            "metaPartial": 6,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Europub Journal Of Health Research",
             "total": 4,
             "util": 3,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Revista Campo Da História",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": -3,
+            "attendPartial": 0.25,
+            "attendMonth": 0.25
+          },
+          {
+            "n": "Revista Projeção, Direito E Sociedade",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": -4,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Revista Gestão E Conhecimento",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": -4,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Sem Descrição",
-            "total": 46,
+            "total": 0,
             "util": 43,
-            "fds": 3
+            "fds": 3,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": -2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Studies In Health Sciences",
             "total": 8,
             "util": 8,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 6,
+            "attendPartial": 4,
+            "attendMonth": 4
           },
           {
             "n": "Interpersona: An International Journal",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Journal Of Media Critiques",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Revista Brasileira De Negócios E Desenvolvimento Regional",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": -1,
+            "attendPartial": 0.5,
+            "attendMonth": 0.5
           },
           {
             "n": "Studies In Social Sciences Review",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": -1,
+            "attendPartial": 0.5,
+            "attendMonth": 0.5
+          },
+          {
+            "n": "Turismo & Desarrollo Local Sostenible",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": -2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Cognitionis Scientific Journal",
             "total": 9,
             "util": 9,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 8,
+            "attendPartial": 9,
+            "attendMonth": 9
           },
           {
             "n": "Brazilian Journal Of Health And Biological Science",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 3,
+            "attendPartial": 4,
+            "attendMonth": 4
           },
           {
             "n": "Revista Filosofia Capital",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 1,
+            "attendPartial": 2,
+            "attendMonth": 2
           },
           {
             "n": "Studies In Engineering And Exact Sciences",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 1,
+            "attendPartial": 2,
+            "attendMonth": 2
+          },
+          {
+            "n": "Ibero-Americana De Ciências Ambientais",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Latin American Journal Of Development",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Europub Journal Of Education Research",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Cadernos De Interpesquisas",
             "total": 8,
             "util": 6,
-            "fds": 2
+            "fds": 2,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 8,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista De Educação Do Unideau",
             "total": 5,
             "util": 5,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 5,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Observatorio Iberoamericano Del Desarrollo Local Y La Economía Social",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 4,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "South Florida Journal Of Health",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 3,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Studies In Environmental And Animal Sciences",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 3,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Journal Archives Of Health",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Eletrônica De Direito, Democracia E Sociedade",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Interfaces Da Saúde",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Tecnologias Em Projeção",
             "total": 2,
             "util": 1,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Brazilian Applied Science Review",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Brazilian Journal Of Technology",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Ceres - Health & Education Medical Journal",
             "total": 1,
             "util": 0,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "International Contemporary Management Review",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Caribeña De Ciencias Sociales",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista De Tecnologia E Conhecimento",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Negócios Em Projeção",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "International Journal Of Scientific Management And Tourism",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Unicir",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Unisantacruz",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           }
         ]
       }
@@ -1042,16 +1960,22 @@
       "url": "https://docs.google.com/spreadsheets/d/19hIyr1eJesYvCS6Soi8Wux4H_serzsrq/edit?gid=10296372#gid=10296372",
       "internal": true,
       "createdAt": "2026-06-23T00:00:00.000Z",
-      "lastSync": "2026-07-01T16:56:28.180Z",
+      "lastSync": "2026-07-01T18:01:12.459Z",
       "lastError": "",
       "note": "Dados atuais ja embutidos no dashboard",
-      "lastBytes": 10025,
-      "lastPreview": ",2412,,Dias úteis,,21,,Percentual meta,,,,92%,,,,,,,,,,,,,,,,,,,,,Atualizado 01/07/2026 12:32,,,,,,\r\n,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\r\nMETA DE ARTIGOS,Data,,1/6,2/6,3/6,4/6,5/6,6/6,7/6,8/6,9/6,10/6,11/6,12/6,13/6,14/6,15/6,16/06,17/6,18/6,19/6,20/6,21/6,22/6,23/6,24/6,25/6,26/6,27/6,28/6,29/6,30/6,TOTAL,,Meta Mes,Meta - Parcial,Dif. Meta x Real (N.),Dif. Meta x Real (X)\r\nTotal Geral,E-mail,Whatsapp,130,125,87,34,89,22,9,123,99,105,104,101,27,19,98,112,84,90,72,19,8,91,96,94,70,101,18,3,76,",
+      "lastBytes": 10067,
+      "lastPreview": "https://future-dashboard-gjei.onrender.com,2412,,Dias úteis,,21,,Percentual meta,,,,92%,,,,,,,,,,,,,,,,,,,,,Atualizado 01/07/2026 12:32,,,,,,\r\n,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\r\nMETA DE ARTIGOS,Data,,1/6,2/6,3/6,4/6,5/6,6/6,7/6,8/6,9/6,10/6,11/6,12/6,13/6,14/6,15/6,16/06,17/6,18/6,19/6,20/6,21/6,22/6,23/6,24/6,25/6,26/6,27/6,28/6,29/6,30/6,TOTAL,,Meta Mes,Meta - Parcial,Dif. Meta x Real (N.),Dif. Meta x Real (X)\r\nTotal Geral,E-mail,Whatsapp,130,125,87,34,89,22,9,123,99,105,104,101,27,19,98,",
       "updatedAt": "2026-07-01T15:12:18.621Z",
       "parsed": {
         "t": 2207,
         "u": 2082,
         "f": 125,
+        "metaMonth": 2409,
+        "metaPartial": 2409,
+        "diffMeta": -202,
+        "attendPartial": 0.9161477791614778,
+        "attendMonth": 0.9161477791614778,
+        "d1": 101,
         "daily": [
           130,
           125,
@@ -1187,355 +2111,757 @@
             "n": "Veredas Do Direito",
             "total": 295,
             "util": 272,
-            "fds": 23
+            "fds": 23,
+            "d1": 8,
+            "metaMonth": 388,
+            "metaPartial": 388,
+            "diffMeta": -93,
+            "attendPartial": 0.7603092783505154,
+            "attendMonth": 0.7603092783505154
           },
           {
             "n": "Cadernos Cajuína",
             "total": 245,
             "util": 233,
-            "fds": 12
+            "fds": 12,
+            "d1": 8,
+            "metaMonth": 245,
+            "metaPartial": 245,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Derecho Y Cambio Social",
             "total": 231,
             "util": 219,
-            "fds": 12
+            "fds": 12,
+            "d1": 19,
+            "metaMonth": 265,
+            "metaPartial": 265,
+            "diffMeta": -34,
+            "attendPartial": 0.8716981132075472,
+            "attendMonth": 0.8716981132075472
           },
           {
             "n": "Aposta Revista De Ciencias Sociales",
             "total": 197,
             "util": 180,
-            "fds": 17
+            "fds": 17,
+            "d1": 6,
+            "metaMonth": 134,
+            "metaPartial": 134,
+            "diffMeta": 63,
+            "attendPartial": 1.4701492537313432,
+            "attendMonth": 1.4701492537313432
           },
           {
             "n": "Artefactum",
             "total": 161,
             "util": 157,
-            "fds": 4
+            "fds": 4,
+            "d1": 12,
+            "metaMonth": 159,
+            "metaPartial": 159,
+            "diffMeta": 2,
+            "attendPartial": 1.0125786163522013,
+            "attendMonth": 1.0125786163522013
           },
           {
             "n": "Desarrollo Local Sostenible",
             "total": 110,
             "util": 106,
-            "fds": 4
+            "fds": 4,
+            "d1": 1,
+            "metaMonth": 138,
+            "metaPartial": 138,
+            "diffMeta": -28,
+            "attendPartial": 0.7971014492753623,
+            "attendMonth": 0.7971014492753623
           },
           {
             "n": "Revista Projeção E Docência",
             "total": 105,
             "util": 100,
-            "fds": 5
+            "fds": 5,
+            "d1": 0,
+            "metaMonth": 61,
+            "metaPartial": 61,
+            "diffMeta": 44,
+            "attendPartial": 1.721311475409836,
+            "attendMonth": 1.721311475409836
           },
           {
             "n": "Contribuciones A Las Ciencias Sociales",
             "total": 89,
             "util": 87,
-            "fds": 2
+            "fds": 2,
+            "d1": 4,
+            "metaMonth": 86,
+            "metaPartial": 86,
+            "diffMeta": 3,
+            "attendPartial": 1.0348837209302326,
+            "attendMonth": 1.0348837209302326
           },
           {
             "n": "Foco Interdisciplinary Journal",
             "total": 81,
             "util": 75,
-            "fds": 6
+            "fds": 6,
+            "d1": 4,
+            "metaMonth": 130,
+            "metaPartial": 130,
+            "diffMeta": -49,
+            "attendPartial": 0.6230769230769231,
+            "attendMonth": 0.6230769230769231
           },
           {
             "n": "Brazilian Journal Of Development",
             "total": 74,
             "util": 67,
-            "fds": 7
+            "fds": 7,
+            "d1": 3,
+            "metaMonth": 74,
+            "metaPartial": 74,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Sem Descrição",
             "total": 69,
             "util": 66,
-            "fds": 3
+            "fds": 3,
+            "d1": 7,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 69,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Contemporânea",
             "total": 60,
             "util": 55,
-            "fds": 5
+            "fds": 5,
+            "d1": 5,
+            "metaMonth": 51,
+            "metaPartial": 51,
+            "diffMeta": 9,
+            "attendPartial": 1.1764705882352942,
+            "attendMonth": 1.1764705882352942
           },
           {
             "n": "Revista Educa - Revista Multidisciplinar Da Faculdade Católica Paulista",
             "total": 58,
             "util": 58,
-            "fds": 0
+            "fds": 0,
+            "d1": 5,
+            "metaMonth": 64,
+            "metaPartial": 64,
+            "diffMeta": -6,
+            "attendPartial": 0.90625,
+            "attendMonth": 0.90625
           },
           {
             "n": "Brazilian Journal Of Health Review",
             "total": 49,
             "util": 46,
-            "fds": 3
+            "fds": 3,
+            "d1": 2,
+            "metaMonth": 80,
+            "metaPartial": 80,
+            "diffMeta": -31,
+            "attendPartial": 0.6125,
+            "attendMonth": 0.6125
           },
           {
             "n": "Revista De Políticas Públicas & Cidades",
             "total": 49,
             "util": 48,
-            "fds": 1
+            "fds": 1,
+            "d1": 2,
+            "metaMonth": 57,
+            "metaPartial": 57,
+            "diffMeta": -8,
+            "attendPartial": 0.8596491228070176,
+            "attendMonth": 0.8596491228070176
           },
           {
             "n": "South Florida Journal Of Development",
             "total": 45,
             "util": 42,
-            "fds": 3
+            "fds": 3,
+            "d1": 1,
+            "metaMonth": 57,
+            "metaPartial": 57,
+            "diffMeta": -12,
+            "attendPartial": 0.7894736842105263,
+            "attendMonth": 0.7894736842105263
           },
           {
             "n": "Revista Acadêmica Online",
             "total": 36,
             "util": 36,
-            "fds": 0
+            "fds": 0,
+            "d1": 2,
+            "metaMonth": 34,
+            "metaPartial": 34,
+            "diffMeta": 2,
+            "attendPartial": 1.0588235294117647,
+            "attendMonth": 1.0588235294117647
           },
           {
             "n": "Caderno Pedagógico",
             "total": 28,
             "util": 24,
-            "fds": 4
+            "fds": 4,
+            "d1": 1,
+            "metaMonth": 42,
+            "metaPartial": 42,
+            "diffMeta": -14,
+            "attendPartial": 0.6666666666666666,
+            "attendMonth": 0.6666666666666666
           },
           {
             "n": "Cuadernos De Educación Y Desarrollo",
             "total": 27,
             "util": 23,
-            "fds": 4
+            "fds": 4,
+            "d1": 0,
+            "metaMonth": 32,
+            "metaPartial": 32,
+            "diffMeta": -5,
+            "attendPartial": 0.84375,
+            "attendMonth": 0.84375
           },
           {
             "n": "Campo Jurídico",
             "total": 24,
             "util": 24,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 21,
+            "metaPartial": 21,
+            "diffMeta": 3,
+            "attendPartial": 1.1428571428571428,
+            "attendMonth": 1.1428571428571428
           },
           {
             "n": "Licencia&Acturas",
             "total": 24,
             "util": 22,
-            "fds": 2
+            "fds": 2,
+            "d1": 0,
+            "metaMonth": 20,
+            "metaPartial": 20,
+            "diffMeta": 4,
+            "attendPartial": 1.2,
+            "attendMonth": 1.2
           },
           {
             "n": "Observatorio De La Economía Latinoamericana",
             "total": 19,
             "util": 19,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 42,
+            "metaPartial": 42,
+            "diffMeta": -23,
+            "attendPartial": 0.4523809523809524,
+            "attendMonth": 0.4523809523809524
           },
           {
             "n": "Revista De Gestão Social E Ambiental",
             "total": 17,
             "util": 15,
-            "fds": 2
+            "fds": 2,
+            "d1": 1,
+            "metaMonth": 12,
+            "metaPartial": 12,
+            "diffMeta": 5,
+            "attendPartial": 1.4166666666666667,
+            "attendMonth": 1.4166666666666667
           },
           {
             "n": "Revista Psipro",
             "total": 17,
             "util": 17,
-            "fds": 0
+            "fds": 0,
+            "d1": 3,
+            "metaMonth": 8,
+            "metaPartial": 8,
+            "diffMeta": 9,
+            "attendPartial": 2.125,
+            "attendMonth": 2.125
           },
           {
             "n": "Journal Of Law And Sustainable Development",
             "total": 10,
             "util": 10,
-            "fds": 0
+            "fds": 0,
+            "d1": 3,
+            "metaMonth": 19,
+            "metaPartial": 19,
+            "diffMeta": -9,
+            "attendPartial": 0.5263157894736842,
+            "attendMonth": 0.5263157894736842
           },
           {
             "n": "Revista Outras Palavras",
             "total": 10,
             "util": 10,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 54,
+            "metaPartial": 54,
+            "diffMeta": -44,
+            "attendPartial": 0.18518518518518517,
+            "attendMonth": 0.18518518518518517
           },
           {
             "n": "Cadernos De Interpesquisas",
             "total": 6,
             "util": 6,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 19,
+            "metaPartial": 19,
+            "diffMeta": -13,
+            "attendPartial": 0.3157894736842105,
+            "attendMonth": 0.3157894736842105
           },
           {
             "n": "International Journal Of Health Management Review",
             "total": 6,
             "util": 4,
-            "fds": 2
+            "fds": 2,
+            "d1": 0,
+            "metaMonth": 31,
+            "metaPartial": 31,
+            "diffMeta": -25,
+            "attendPartial": 0.1935483870967742,
+            "attendMonth": 0.1935483870967742
           },
           {
             "n": "Europub Journal Of Health Research",
             "total": 5,
             "util": 5,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 5,
+            "metaPartial": 5,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Journal Of Lifestyle And Sdgs Review",
             "total": 5,
             "util": 5,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 17,
+            "metaPartial": 17,
+            "diffMeta": -12,
+            "attendPartial": 0.29411764705882354,
+            "attendMonth": 0.29411764705882354
           },
           {
             "n": "Journal Of Media Critiques",
             "total": 5,
             "util": 4,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 3,
+            "metaPartial": 3,
+            "diffMeta": 2,
+            "attendPartial": 1.6666666666666667,
+            "attendMonth": 1.6666666666666667
           },
           {
             "n": "Brazilian Journal Of Biological Sciences",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 6,
+            "metaPartial": 6,
+            "diffMeta": -2,
+            "attendPartial": 0.6666666666666666,
+            "attendMonth": 0.6666666666666666
           },
           {
             "n": "Revista Brasileira De Negócios E Desenvolvimento Regional",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Revista De Educação Do Unideau",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 5,
+            "metaPartial": 5,
+            "diffMeta": -1,
+            "attendPartial": 0.8,
+            "attendMonth": 0.8
           },
           {
             "n": "Revista Gestão E Secretariado",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 6,
+            "metaPartial": 6,
+            "diffMeta": -2,
+            "attendPartial": 0.6666666666666666,
+            "attendMonth": 0.6666666666666666
           },
           {
             "n": "Brazilian Journal Of Health And Biological Science",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 2,
+            "attendPartial": 3,
+            "attendMonth": 3
           },
           {
             "n": "Revista De Ciências Humanas",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 3,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Journal Archives Of Health",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Caribeña De Ciencias Sociales",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista De Tecnologia E Conhecimento",
             "total": 2,
             "util": 1,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Filosofia Capital",
             "total": 2,
             "util": 1,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Studies In Health Sciences",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 3,
+            "metaPartial": 3,
+            "diffMeta": -1,
+            "attendPartial": 0.6666666666666666,
+            "attendMonth": 0.6666666666666666
           },
           {
             "n": "Technology Sciences",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Brazilian Applied Science Review",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Europub Journal Of Education Research",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "India Brazilian Journals Of Development",
             "total": 1,
             "util": 0,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "International Contemporary Management Review",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Campo Da História",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 7,
+            "metaPartial": 7,
+            "diffMeta": -6,
+            "attendPartial": 0.14285714285714285,
+            "attendMonth": 0.14285714285714285
           },
           {
             "n": "Revista De Comunicação, Linguagens E Sociedade",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista De Educação E Ensino",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Eletrônica De Direito, Democracia E Sociedade",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Interdisciplinar",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Socializando",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Sociedade, Direito E Justiça",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Studies In Education Sciences",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 10,
+            "metaPartial": 10,
+            "diffMeta": -9,
+            "attendPartial": 0.1,
+            "attendMonth": 0.1
           },
           {
             "n": "Studies In Environmental And Animal Sciences",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "India Brazilian Journals Of Development - Cópia",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Observatorio Iberoamericano Del Desarrollo Local Y La Economía Social",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Gestão E Conhecimento",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "International Journal Of Professional Business Review",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 7,
+            "metaPartial": 7,
+            "diffMeta": -7,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Studies In Social Sciences Review",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": -2,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Revista Educação E Linguagem",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 8,
+            "metaPartial": 8,
+            "diffMeta": -8,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Cognitionis Scientific Journal",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
           }
         ]
       }
@@ -1545,14 +2871,20 @@
       "url": "https://docs.google.com/spreadsheets/d/19hIyr1eJesYvCS6Soi8Wux4H_serzsrq/edit?gid=10296372#gid=10296372",
       "createdAt": "2026-07-01T15:12:50.043Z",
       "updatedAt": "2026-07-01T15:13:01.877Z",
-      "lastSync": "2026-07-01T16:56:29.109Z",
-      "lastBytes": 10025,
-      "lastPreview": ",2412,,Dias úteis,,21,,Percentual meta,,,,92%,,,,,,,,,,,,,,,,,,,,,Atualizado 01/07/2026 12:32,,,,,,\r\n,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\r\nMETA DE ARTIGOS,Data,,1/6,2/6,3/6,4/6,5/6,6/6,7/6,8/6,9/6,10/6,11/6,12/6,13/6,14/6,15/6,16/06,17/6,18/6,19/6,20/6,21/6,22/6,23/6,24/6,25/6,26/6,27/6,28/6,29/6,30/6,TOTAL,,Meta Mes,Meta - Parcial,Dif. Meta x Real (N.),Dif. Meta x Real (X)\r\nTotal Geral,E-mail,Whatsapp,130,125,87,34,89,22,9,123,99,105,104,101,27,19,98,112,84,90,72,19,8,91,96,94,70,101,18,3,76,",
+      "lastSync": "2026-07-01T18:01:12.974Z",
+      "lastBytes": 10067,
+      "lastPreview": "https://future-dashboard-gjei.onrender.com,2412,,Dias úteis,,21,,Percentual meta,,,,92%,,,,,,,,,,,,,,,,,,,,,Atualizado 01/07/2026 12:32,,,,,,\r\n,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\r\nMETA DE ARTIGOS,Data,,1/6,2/6,3/6,4/6,5/6,6/6,7/6,8/6,9/6,10/6,11/6,12/6,13/6,14/6,15/6,16/06,17/6,18/6,19/6,20/6,21/6,22/6,23/6,24/6,25/6,26/6,27/6,28/6,29/6,30/6,TOTAL,,Meta Mes,Meta - Parcial,Dif. Meta x Real (N.),Dif. Meta x Real (X)\r\nTotal Geral,E-mail,Whatsapp,130,125,87,34,89,22,9,123,99,105,104,101,27,19,98,",
       "lastError": "",
       "parsed": {
         "t": 2207,
         "u": 2082,
         "f": 125,
+        "metaMonth": 2409,
+        "metaPartial": 2409,
+        "diffMeta": -202,
+        "attendPartial": 0.9161477791614778,
+        "attendMonth": 0.9161477791614778,
+        "d1": 101,
         "daily": [
           130,
           125,
@@ -1688,355 +3020,757 @@
             "n": "Veredas Do Direito",
             "total": 295,
             "util": 272,
-            "fds": 23
+            "fds": 23,
+            "d1": 8,
+            "metaMonth": 388,
+            "metaPartial": 388,
+            "diffMeta": -93,
+            "attendPartial": 0.7603092783505154,
+            "attendMonth": 0.7603092783505154
           },
           {
             "n": "Cadernos Cajuína",
             "total": 245,
             "util": 233,
-            "fds": 12
+            "fds": 12,
+            "d1": 8,
+            "metaMonth": 245,
+            "metaPartial": 245,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Derecho Y Cambio Social",
             "total": 231,
             "util": 219,
-            "fds": 12
+            "fds": 12,
+            "d1": 19,
+            "metaMonth": 265,
+            "metaPartial": 265,
+            "diffMeta": -34,
+            "attendPartial": 0.8716981132075472,
+            "attendMonth": 0.8716981132075472
           },
           {
             "n": "Aposta Revista De Ciencias Sociales",
             "total": 197,
             "util": 180,
-            "fds": 17
+            "fds": 17,
+            "d1": 6,
+            "metaMonth": 134,
+            "metaPartial": 134,
+            "diffMeta": 63,
+            "attendPartial": 1.4701492537313432,
+            "attendMonth": 1.4701492537313432
           },
           {
             "n": "Artefactum",
             "total": 161,
             "util": 157,
-            "fds": 4
+            "fds": 4,
+            "d1": 12,
+            "metaMonth": 159,
+            "metaPartial": 159,
+            "diffMeta": 2,
+            "attendPartial": 1.0125786163522013,
+            "attendMonth": 1.0125786163522013
           },
           {
             "n": "Desarrollo Local Sostenible",
             "total": 110,
             "util": 106,
-            "fds": 4
+            "fds": 4,
+            "d1": 1,
+            "metaMonth": 138,
+            "metaPartial": 138,
+            "diffMeta": -28,
+            "attendPartial": 0.7971014492753623,
+            "attendMonth": 0.7971014492753623
           },
           {
             "n": "Revista Projeção E Docência",
             "total": 105,
             "util": 100,
-            "fds": 5
+            "fds": 5,
+            "d1": 0,
+            "metaMonth": 61,
+            "metaPartial": 61,
+            "diffMeta": 44,
+            "attendPartial": 1.721311475409836,
+            "attendMonth": 1.721311475409836
           },
           {
             "n": "Contribuciones A Las Ciencias Sociales",
             "total": 89,
             "util": 87,
-            "fds": 2
+            "fds": 2,
+            "d1": 4,
+            "metaMonth": 86,
+            "metaPartial": 86,
+            "diffMeta": 3,
+            "attendPartial": 1.0348837209302326,
+            "attendMonth": 1.0348837209302326
           },
           {
             "n": "Foco Interdisciplinary Journal",
             "total": 81,
             "util": 75,
-            "fds": 6
+            "fds": 6,
+            "d1": 4,
+            "metaMonth": 130,
+            "metaPartial": 130,
+            "diffMeta": -49,
+            "attendPartial": 0.6230769230769231,
+            "attendMonth": 0.6230769230769231
           },
           {
             "n": "Brazilian Journal Of Development",
             "total": 74,
             "util": 67,
-            "fds": 7
+            "fds": 7,
+            "d1": 3,
+            "metaMonth": 74,
+            "metaPartial": 74,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Sem Descrição",
             "total": 69,
             "util": 66,
-            "fds": 3
+            "fds": 3,
+            "d1": 7,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 69,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Contemporânea",
             "total": 60,
             "util": 55,
-            "fds": 5
+            "fds": 5,
+            "d1": 5,
+            "metaMonth": 51,
+            "metaPartial": 51,
+            "diffMeta": 9,
+            "attendPartial": 1.1764705882352942,
+            "attendMonth": 1.1764705882352942
           },
           {
             "n": "Revista Educa - Revista Multidisciplinar Da Faculdade Católica Paulista",
             "total": 58,
             "util": 58,
-            "fds": 0
+            "fds": 0,
+            "d1": 5,
+            "metaMonth": 64,
+            "metaPartial": 64,
+            "diffMeta": -6,
+            "attendPartial": 0.90625,
+            "attendMonth": 0.90625
           },
           {
             "n": "Brazilian Journal Of Health Review",
             "total": 49,
             "util": 46,
-            "fds": 3
+            "fds": 3,
+            "d1": 2,
+            "metaMonth": 80,
+            "metaPartial": 80,
+            "diffMeta": -31,
+            "attendPartial": 0.6125,
+            "attendMonth": 0.6125
           },
           {
             "n": "Revista De Políticas Públicas & Cidades",
             "total": 49,
             "util": 48,
-            "fds": 1
+            "fds": 1,
+            "d1": 2,
+            "metaMonth": 57,
+            "metaPartial": 57,
+            "diffMeta": -8,
+            "attendPartial": 0.8596491228070176,
+            "attendMonth": 0.8596491228070176
           },
           {
             "n": "South Florida Journal Of Development",
             "total": 45,
             "util": 42,
-            "fds": 3
+            "fds": 3,
+            "d1": 1,
+            "metaMonth": 57,
+            "metaPartial": 57,
+            "diffMeta": -12,
+            "attendPartial": 0.7894736842105263,
+            "attendMonth": 0.7894736842105263
           },
           {
             "n": "Revista Acadêmica Online",
             "total": 36,
             "util": 36,
-            "fds": 0
+            "fds": 0,
+            "d1": 2,
+            "metaMonth": 34,
+            "metaPartial": 34,
+            "diffMeta": 2,
+            "attendPartial": 1.0588235294117647,
+            "attendMonth": 1.0588235294117647
           },
           {
             "n": "Caderno Pedagógico",
             "total": 28,
             "util": 24,
-            "fds": 4
+            "fds": 4,
+            "d1": 1,
+            "metaMonth": 42,
+            "metaPartial": 42,
+            "diffMeta": -14,
+            "attendPartial": 0.6666666666666666,
+            "attendMonth": 0.6666666666666666
           },
           {
             "n": "Cuadernos De Educación Y Desarrollo",
             "total": 27,
             "util": 23,
-            "fds": 4
+            "fds": 4,
+            "d1": 0,
+            "metaMonth": 32,
+            "metaPartial": 32,
+            "diffMeta": -5,
+            "attendPartial": 0.84375,
+            "attendMonth": 0.84375
           },
           {
             "n": "Campo Jurídico",
             "total": 24,
             "util": 24,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 21,
+            "metaPartial": 21,
+            "diffMeta": 3,
+            "attendPartial": 1.1428571428571428,
+            "attendMonth": 1.1428571428571428
           },
           {
             "n": "Licencia&Acturas",
             "total": 24,
             "util": 22,
-            "fds": 2
+            "fds": 2,
+            "d1": 0,
+            "metaMonth": 20,
+            "metaPartial": 20,
+            "diffMeta": 4,
+            "attendPartial": 1.2,
+            "attendMonth": 1.2
           },
           {
             "n": "Observatorio De La Economía Latinoamericana",
             "total": 19,
             "util": 19,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 42,
+            "metaPartial": 42,
+            "diffMeta": -23,
+            "attendPartial": 0.4523809523809524,
+            "attendMonth": 0.4523809523809524
           },
           {
             "n": "Revista De Gestão Social E Ambiental",
             "total": 17,
             "util": 15,
-            "fds": 2
+            "fds": 2,
+            "d1": 1,
+            "metaMonth": 12,
+            "metaPartial": 12,
+            "diffMeta": 5,
+            "attendPartial": 1.4166666666666667,
+            "attendMonth": 1.4166666666666667
           },
           {
             "n": "Revista Psipro",
             "total": 17,
             "util": 17,
-            "fds": 0
+            "fds": 0,
+            "d1": 3,
+            "metaMonth": 8,
+            "metaPartial": 8,
+            "diffMeta": 9,
+            "attendPartial": 2.125,
+            "attendMonth": 2.125
           },
           {
             "n": "Journal Of Law And Sustainable Development",
             "total": 10,
             "util": 10,
-            "fds": 0
+            "fds": 0,
+            "d1": 3,
+            "metaMonth": 19,
+            "metaPartial": 19,
+            "diffMeta": -9,
+            "attendPartial": 0.5263157894736842,
+            "attendMonth": 0.5263157894736842
           },
           {
             "n": "Revista Outras Palavras",
             "total": 10,
             "util": 10,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 54,
+            "metaPartial": 54,
+            "diffMeta": -44,
+            "attendPartial": 0.18518518518518517,
+            "attendMonth": 0.18518518518518517
           },
           {
             "n": "Cadernos De Interpesquisas",
             "total": 6,
             "util": 6,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 19,
+            "metaPartial": 19,
+            "diffMeta": -13,
+            "attendPartial": 0.3157894736842105,
+            "attendMonth": 0.3157894736842105
           },
           {
             "n": "International Journal Of Health Management Review",
             "total": 6,
             "util": 4,
-            "fds": 2
+            "fds": 2,
+            "d1": 0,
+            "metaMonth": 31,
+            "metaPartial": 31,
+            "diffMeta": -25,
+            "attendPartial": 0.1935483870967742,
+            "attendMonth": 0.1935483870967742
           },
           {
             "n": "Europub Journal Of Health Research",
             "total": 5,
             "util": 5,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 5,
+            "metaPartial": 5,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Journal Of Lifestyle And Sdgs Review",
             "total": 5,
             "util": 5,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 17,
+            "metaPartial": 17,
+            "diffMeta": -12,
+            "attendPartial": 0.29411764705882354,
+            "attendMonth": 0.29411764705882354
           },
           {
             "n": "Journal Of Media Critiques",
             "total": 5,
             "util": 4,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 3,
+            "metaPartial": 3,
+            "diffMeta": 2,
+            "attendPartial": 1.6666666666666667,
+            "attendMonth": 1.6666666666666667
           },
           {
             "n": "Brazilian Journal Of Biological Sciences",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 6,
+            "metaPartial": 6,
+            "diffMeta": -2,
+            "attendPartial": 0.6666666666666666,
+            "attendMonth": 0.6666666666666666
           },
           {
             "n": "Revista Brasileira De Negócios E Desenvolvimento Regional",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 4,
+            "metaPartial": 4,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Revista De Educação Do Unideau",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 5,
+            "metaPartial": 5,
+            "diffMeta": -1,
+            "attendPartial": 0.8,
+            "attendMonth": 0.8
           },
           {
             "n": "Revista Gestão E Secretariado",
             "total": 4,
             "util": 4,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 6,
+            "metaPartial": 6,
+            "diffMeta": -2,
+            "attendPartial": 0.6666666666666666,
+            "attendMonth": 0.6666666666666666
           },
           {
             "n": "Brazilian Journal Of Health And Biological Science",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": 2,
+            "attendPartial": 3,
+            "attendMonth": 3
           },
           {
             "n": "Revista De Ciências Humanas",
             "total": 3,
             "util": 3,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 3,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Journal Archives Of Health",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Caribeña De Ciencias Sociales",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista De Tecnologia E Conhecimento",
             "total": 2,
             "util": 1,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Filosofia Capital",
             "total": 2,
             "util": 1,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": 0,
+            "attendPartial": 1,
+            "attendMonth": 1
           },
           {
             "n": "Studies In Health Sciences",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 3,
+            "metaPartial": 3,
+            "diffMeta": -1,
+            "attendPartial": 0.6666666666666666,
+            "attendMonth": 0.6666666666666666
           },
           {
             "n": "Technology Sciences",
             "total": 2,
             "util": 2,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 2,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Brazilian Applied Science Review",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Europub Journal Of Education Research",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "India Brazilian Journals Of Development",
             "total": 1,
             "util": 0,
-            "fds": 1
+            "fds": 1,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "International Contemporary Management Review",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Campo Da História",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 7,
+            "metaPartial": 7,
+            "diffMeta": -6,
+            "attendPartial": 0.14285714285714285,
+            "attendMonth": 0.14285714285714285
           },
           {
             "n": "Revista De Comunicação, Linguagens E Sociedade",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista De Educação E Ensino",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 1,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Eletrônica De Direito, Democracia E Sociedade",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Interdisciplinar",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Socializando",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Sociedade, Direito E Justiça",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Studies In Education Sciences",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 10,
+            "metaPartial": 10,
+            "diffMeta": -9,
+            "attendPartial": 0.1,
+            "attendMonth": 0.1
           },
           {
             "n": "Studies In Environmental And Animal Sciences",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "India Brazilian Journals Of Development - Cópia",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Observatorio Iberoamericano Del Desarrollo Local Y La Economía Social",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
           },
           {
             "n": "Revista Gestão E Conhecimento",
             "total": 1,
             "util": 1,
-            "fds": 0
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 0,
+            "metaPartial": 0,
+            "diffMeta": 1,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "International Journal Of Professional Business Review",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 7,
+            "metaPartial": 7,
+            "diffMeta": -7,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Studies In Social Sciences Review",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 2,
+            "metaPartial": 2,
+            "diffMeta": -2,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Revista Educação E Linguagem",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 8,
+            "metaPartial": 8,
+            "diffMeta": -8,
+            "attendPartial": 0,
+            "attendMonth": 0
+          },
+          {
+            "n": "Cognitionis Scientific Journal",
+            "total": 0,
+            "util": 0,
+            "fds": 0,
+            "d1": 0,
+            "metaMonth": 1,
+            "metaPartial": 1,
+            "diffMeta": -1,
+            "attendPartial": 0,
+            "attendMonth": 0
           }
         ]
       }
@@ -2046,7 +3780,7 @@
       "url": "",
       "internal": false,
       "createdAt": "2026-07-01T16:23:45.888Z",
-      "lastSync": "2026-07-01T16:56:29.109Z",
+      "lastSync": "2026-07-01T18:01:12.974Z",
       "lastError": "",
       "note": "",
       "lastBytes": 0,
@@ -2057,7 +3791,7 @@
       "url": "",
       "internal": false,
       "createdAt": "2026-07-01T16:23:45.888Z",
-      "lastSync": "2026-07-01T16:56:29.109Z",
+      "lastSync": "2026-07-01T18:01:12.974Z",
       "lastError": "",
       "note": "",
       "lastBytes": 0,
@@ -2068,7 +3802,7 @@
       "url": "",
       "internal": false,
       "createdAt": "2026-07-01T16:23:45.888Z",
-      "lastSync": "2026-07-01T16:56:29.109Z",
+      "lastSync": "2026-07-01T18:01:12.974Z",
       "lastError": "",
       "note": "",
       "lastBytes": 0,
@@ -2079,7 +3813,7 @@
       "url": "",
       "internal": false,
       "createdAt": "2026-07-01T16:23:45.888Z",
-      "lastSync": "2026-07-01T16:56:29.109Z",
+      "lastSync": "2026-07-01T18:01:12.974Z",
       "lastError": "",
       "note": "",
       "lastBytes": 0,
@@ -2090,14 +3824,14 @@
       "url": "",
       "internal": false,
       "createdAt": "2026-07-01T16:23:45.888Z",
-      "lastSync": "2026-07-01T16:56:29.109Z",
+      "lastSync": "2026-07-01T18:01:12.974Z",
       "lastError": "",
       "note": "",
       "lastBytes": 0,
       "lastPreview": ""
     }
   ],
-  "lastUpdate": "2026-07-01T16:56:29.109Z",
+  "lastUpdate": "2026-07-01T18:01:12.974Z",
   "history": [
     {
       "name": "Janeiro",
@@ -2530,6 +4264,114 @@
       "mags": null,
       "error": "",
       "at": "2026-07-01T16:56:29.109Z"
+    },
+    {
+      "name": "Janeiro",
+      "ok": true,
+      "skipped": true,
+      "total": null,
+      "mags": null,
+      "error": "",
+      "at": "2026-07-01T18:01:07.983Z"
+    },
+    {
+      "name": "Fevereiro",
+      "ok": true,
+      "skipped": true,
+      "total": null,
+      "mags": null,
+      "error": "",
+      "at": "2026-07-01T18:01:07.983Z"
+    },
+    {
+      "name": "Março",
+      "ok": true,
+      "skipped": true,
+      "total": null,
+      "mags": null,
+      "error": "",
+      "at": "2026-07-01T18:01:07.983Z"
+    },
+    {
+      "name": "Abril",
+      "ok": true,
+      "skipped": false,
+      "total": 1822,
+      "mags": 64,
+      "error": "",
+      "at": "2026-07-01T18:01:10.608Z"
+    },
+    {
+      "name": "Maio",
+      "ok": true,
+      "skipped": false,
+      "total": 2015,
+      "mags": 70,
+      "error": "",
+      "at": "2026-07-01T18:01:11.641Z"
+    },
+    {
+      "name": "Junho",
+      "ok": true,
+      "skipped": false,
+      "total": 2207,
+      "mags": 63,
+      "error": "",
+      "at": "2026-07-01T18:01:12.459Z"
+    },
+    {
+      "name": "Julho",
+      "ok": true,
+      "skipped": false,
+      "total": 2207,
+      "mags": 63,
+      "error": "",
+      "at": "2026-07-01T18:01:12.974Z"
+    },
+    {
+      "name": "Agosto",
+      "ok": true,
+      "skipped": true,
+      "total": null,
+      "mags": null,
+      "error": "",
+      "at": "2026-07-01T18:01:12.974Z"
+    },
+    {
+      "name": "Setembro",
+      "ok": true,
+      "skipped": true,
+      "total": null,
+      "mags": null,
+      "error": "",
+      "at": "2026-07-01T18:01:12.974Z"
+    },
+    {
+      "name": "Outubro",
+      "ok": true,
+      "skipped": true,
+      "total": null,
+      "mags": null,
+      "error": "",
+      "at": "2026-07-01T18:01:12.974Z"
+    },
+    {
+      "name": "Novembro",
+      "ok": true,
+      "skipped": true,
+      "total": null,
+      "mags": null,
+      "error": "",
+      "at": "2026-07-01T18:01:12.974Z"
+    },
+    {
+      "name": "Dezembro",
+      "ok": true,
+      "skipped": true,
+      "total": null,
+      "mags": null,
+      "error": "",
+      "at": "2026-07-01T18:01:12.974Z"
     }
   ]
 }

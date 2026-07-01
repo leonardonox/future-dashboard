@@ -140,6 +140,7 @@ tr:hover td{background:#f0f6ff}
 .status-pill{display:inline-flex;align-items:center;justify-content:center;border-radius:16px;padding:4px 9px;font-size:.72rem;font-weight:800;white-space:nowrap}
 .status-ok{background:#d5f0d0;color:var(--vd1)}.status-empty{background:#eef1f4;color:#666}.status-err{background:#ffd5d5;color:var(--red)}.status-dup{background:#fff2cc;color:#8a5a00}
 .sheet-history{display:grid;gap:6px;margin-top:4px}.history-row{display:grid;grid-template-columns:160px 1fr 120px 120px;gap:8px;align-items:center;padding:7px 10px;background:#fff;border:1px solid #e5edf5;border-radius:8px;font-size:.78rem}.history-row b{color:var(--az1)}
+.meta-card{border-left-color:var(--vd1)}.meta-card.warn{border-left-color:var(--lj2)}.meta-card.bad{border-left-color:var(--red)}.meta-card .big{font-size:1.5rem;font-weight:800;color:var(--az1);margin-top:8px}.meta-card .sub{font-size:.78rem;color:#888;margin-top:6px}.meta-toolbar{display:flex;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap}.meta-toolbar input,.meta-toolbar select{height:38px;border:1.5px solid var(--az3);border-radius:8px;padding:0 12px;background:#fff;font-size:.9rem;min-width:230px}.goal-pill{display:inline-flex;align-items:center;justify-content:center;border-radius:18px;padding:4px 10px;font-weight:800}.goal-ok{background:#d5f0d0;color:var(--vd1)}.goal-warn{background:#fff2cc;color:#8a5a00}.goal-bad{background:#ffd5d5;color:var(--red)}.meta-diff-pos{color:var(--vd1);font-weight:800}.meta-diff-neg{color:var(--red);font-weight:800}
 .analysis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:18px}.analysis-card{background:#fff;border-radius:8px;box-shadow:var(--shadow);padding:16px;border-left:4px solid var(--az2)}.analysis-card h3{font-size:.85rem;color:var(--az1);margin-bottom:8px}.analysis-card .big{font-size:1.45rem;font-weight:800}.analysis-table{background:#fff;border-radius:8px;box-shadow:var(--shadow);overflow:hidden}.analysis-actions{display:flex;gap:8px;justify-content:flex-end;margin-bottom:14px;flex-wrap:wrap}.empty-state{background:#fff;border:1px dashed var(--az3);border-radius:8px;padding:18px;color:#666;font-weight:700;text-align:center}
 @media(max-width:900px){.history-row{grid-template-columns:1fr}.sheet-head,.sheet-row{grid-template-columns:1fr}}
 </style>
@@ -174,6 +175,7 @@ tr:hover td{background:#f0f6ff}
   <button class="tab-btn active" onclick="showTab('resumo',this)">📈 Resumo</button>
   <button class="tab-btn"        onclick="showTab('diario',this)">📅 Por Dia</button>
   <button class="tab-btn"        onclick="showTab('revistas',this)">📰 Por Revista</button>
+  <button class="tab-btn" id="tab-btn-metas" onclick="showTab('metas',this)">🎯 Metas</button>
   <button class="tab-btn"        onclick="showTab('base',this)">🗄️ Base de dados</button>
   <button class="tab-btn"        onclick="showTab('analise',this)">🧠 Análise</button>
 </div>
@@ -243,6 +245,35 @@ tr:hover td{background:#f0f6ff}
     <tbody id="tbody-mags"></tbody>
   </table></div>
   <p class="note">Ordenado por mês B (decrescente)</p>
+</div>
+<!-- ══ TAB METAS ══ -->
+<div class="panel" id="tab-metas">
+  <div class="meta-toolbar">
+    <input type="text" id="metaSearch" placeholder="🔍 Buscar revista..." oninput="renderMetas()">
+    <select id="metaSort" onchange="renderMetas()">
+      <option value="total">Ordenar: Total Acum.</option>
+      <option value="partial">Ordenar: Aten. Parcial</option>
+      <option value="month">Ordenar: Aten. Mês</option>
+      <option value="diff">Ordenar: Diferença</option>
+      <option value="name">Ordenar: Revista</option>
+    </select>
+    <span class="sheet-status" id="metaCount"></span>
+  </div>
+  <div class="kpi-grid" id="meta-kpis"></div>
+  <div id="meta-empty"></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr>
+      <th style="min-width:260px">Revista</th>
+      <th id="meta-th-d1">D-1</th>
+      <th>Total Acum.</th>
+      <th>Meta Mês</th>
+      <th>Meta Parcial</th>
+      <th>Aten. Parcial</th>
+      <th>Aten. Mês</th>
+      <th>Diferença</th>
+    </tr></thead>
+    <tbody id="tbody-metas"></tbody>
+  </table></div>
 </div>
 <!-- ══ TAB BASE DE DADOS ══ -->
 <div class="panel" id="tab-base">
@@ -423,6 +454,7 @@ function ensureMonthSelection(){
   if(!DATA[selA]) selA = keys[0];
   if(!DATA[selB]) selB = keys.find(key=>key!==selA) || keys[0];
   if(selA===selB && keys.length>1) selB = keys.find(key=>key!==selA);
+  if(!DATA[selMeta]) selMeta = selB || selA || keys[0];
 }
 
 function renderMonthButtons(){
@@ -642,12 +674,14 @@ function magFds(row, key){ return magFor(row,key).fds || 0; }
 // STATE
 // ──────────────────────────────────────────────────────────────
 let selA = 'abril', selB = 'junho';
+let selMeta = 'junho';
 let charts = {};
 
 function mesKey(btn){ return btn.dataset.mes; }
 
 function selMes(btn, slot){
   const key = mesKey(btn);
+  selMeta = key;
   if(slot==='a'){
     if(key===selB) selB=selA;
     selA=key;
@@ -676,6 +710,7 @@ function rebuildAll(){
   buildDailyTable(A,B);
   updateMagHeaders(A,B);
   renderMags();
+  renderMetas();
   updateDataWarning();
   renderAnalysis();
 }
@@ -887,6 +922,122 @@ function renderMags(){
       <td>${magFds(r,selA)}</td><td>${magFds(r,selB)}</td>
       <td>${melhor}</td>`;
     tb.appendChild(tr);
+  });
+}
+
+function fmtInt(value){ return Number(value || 0).toLocaleString('pt-BR'); }
+function fmtPctRatio(value){ return `${(Number(value || 0) * 100).toFixed(1)}%`; }
+function goalClass(value){
+  const pctValue = Number(value || 0) * 100;
+  if(pctValue >= 100) return 'goal-ok';
+  if(pctValue >= 85) return 'goal-warn';
+  return 'goal-bad';
+}
+function metaRowsFor(key){
+  return monthMags(key).map(item=>({
+    name:item.n,
+    d1:Number(item.d1 || 0),
+    total:Number(item.total || 0),
+    metaMonth:Number(item.metaMonth || 0),
+    metaPartial:Number(item.metaPartial || 0),
+    diffMeta:Number(item.diffMeta || (Number(item.total || 0) - Number(item.metaPartial || 0))),
+    attendPartial:Number(item.attendPartial || (item.metaPartial > 0 ? item.total / item.metaPartial : 0)),
+    attendMonth:Number(item.attendMonth || (item.metaMonth > 0 ? item.total / item.metaMonth : 0))
+  }));
+}
+function updateMetasTabLabel(data){
+  const btn=document.getElementById('tab-btn-metas');
+  if(btn) btn.textContent=`🎯 Metas ${data?.short || ''}`.trim();
+}
+function renderMetaCards(data, rows){
+  const box=document.getElementById('meta-kpis');
+  if(!box || !data) return;
+  const total=Number(data.t || 0);
+  const metaMonth=Number(data.metaMonth || rows.reduce((sum,row)=>sum+row.metaMonth,0));
+  const metaPartial=Number(data.metaPartial || rows.reduce((sum,row)=>sum+row.metaPartial,0));
+  const attendPartial=metaPartial>0 ? total/metaPartial : 0;
+  const attendMonth=metaMonth>0 ? total/metaMonth : 0;
+  const d1=Number(data.d1 || valAt(data.daily,(data.daily?.length || 1)-1));
+  const lastDate=textAt(data.dates,(data.dates?.length || 1)-1,'D-1');
+  const diff=total-metaPartial;
+  box.innerHTML=`
+    <div class="kpi-card meta-card">
+      <div class="kpi-lbl">Total Real (${textAt(data.dates,0,'D1')}–${lastDate})</div>
+      <div class="big">${fmtInt(total)}</div>
+      <div class="sub">artigos vendidos</div>
+    </div>
+    <div class="kpi-card meta-card warn">
+      <div class="kpi-lbl">Meta Parcial</div>
+      <div class="big">${fmtInt(metaPartial)}</div>
+      <div class="sub">esperado até ${lastDate}</div>
+    </div>
+    <div class="kpi-card meta-card">
+      <div class="kpi-lbl">Meta Mês (${data.label})</div>
+      <div class="big">${fmtInt(metaMonth)}</div>
+      <div class="sub">meta total do mês</div>
+    </div>
+    <div class="kpi-card meta-card ${attendPartial>=1?'':'bad'}">
+      <div class="kpi-lbl">Atendimento Parcial</div>
+      <div class="big"><span class="goal-pill ${goalClass(attendPartial)}">${fmtPctRatio(attendPartial)}</span></div>
+      <div class="sub">${sign(diff)}${fmtInt(diff)} vs meta</div>
+    </div>
+    <div class="kpi-card meta-card">
+      <div class="kpi-lbl">Atendimento Mês</div>
+      <div class="big">${fmtPctRatio(attendMonth)}</div>
+      <div class="sub">do total mensal</div>
+    </div>
+    <div class="kpi-card meta-card">
+      <div class="kpi-lbl">Artigos D-1 (${lastDate})</div>
+      <div class="big">${fmtInt(d1)}</div>
+      <div class="sub">vendidos no último dia</div>
+    </div>`;
+}
+function renderMetas(){
+  const key = selMeta || selB || selA;
+  const data = DATA[key];
+  const tbody=document.getElementById('tbody-metas');
+  const empty=document.getElementById('meta-empty');
+  const count=document.getElementById('metaCount');
+  const d1Head=document.getElementById('meta-th-d1');
+  if(!tbody || !data) return;
+  updateMetasTabLabel(data);
+  const lastDate=textAt(data.dates,(data.dates?.length || 1)-1,'D-1');
+  if(d1Head) d1Head.textContent=`D-1 (${lastDate})`;
+
+  let rows=metaRowsFor(key);
+  const hasMeta=rows.some(row=>row.metaMonth>0 || row.metaPartial>0) || Number(data.metaMonth || 0)>0 || Number(data.metaPartial || 0)>0;
+  renderMetaCards(data, rows);
+  if(!hasMeta){
+    tbody.innerHTML='';
+    if(count) count.textContent='';
+    if(empty) empty.innerHTML='<div class="empty-state">Este mês ainda não tem metas carregadas. Vá em Base de dados e clique em Atualizar informações para reler a planilha.</div>';
+    return;
+  }
+  if(empty) empty.innerHTML='';
+  const txt=(document.getElementById('metaSearch')?.value || '').toLowerCase();
+  const sort=document.getElementById('metaSort')?.value || 'total';
+  rows=rows.filter(row=>row.name.toLowerCase().includes(txt));
+  rows.sort((a,b)=>{
+    if(sort==='name') return a.name.localeCompare(b.name);
+    if(sort==='partial') return b.attendPartial-a.attendPartial;
+    if(sort==='month') return b.attendMonth-a.attendMonth;
+    if(sort==='diff') return Math.abs(b.diffMeta)-Math.abs(a.diffMeta);
+    return b.total-a.total;
+  });
+  if(count) count.textContent=`${rows.length} revistas`;
+  tbody.innerHTML='';
+  rows.forEach(row=>{
+    const diffCls=row.diffMeta>=0?'meta-diff-pos':'meta-diff-neg';
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${row.name}</td>
+      <td>${row.d1 || '—'}</td>
+      <td>${fmtInt(row.total)}</td>
+      <td>${fmtInt(row.metaMonth)}</td>
+      <td>${fmtInt(row.metaPartial)}</td>
+      <td><span class="goal-pill ${goalClass(row.attendPartial)}">${fmtPctRatio(row.attendPartial)}</span></td>
+      <td>${fmtPctRatio(row.attendMonth)}</td>
+      <td class="${diffCls}">${sign(row.diffMeta)}${fmtInt(row.diffMeta)}</td>`;
+    tbody.appendChild(tr);
   });
 }
 

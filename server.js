@@ -81,6 +81,13 @@ function parseNumber(value) {
   return Number.isFinite(num) ? num : 0;
 }
 
+function findHeaderIndex(header, patterns) {
+  return header.findIndex(cell => {
+    const key = normalizeKey(cell);
+    return patterns.some(pattern => key === pattern || key.includes(pattern));
+  });
+}
+
 function findDayColumns(header, preferredMonth) {
   const columns = [];
   header.forEach((cell, index) => {
@@ -124,12 +131,19 @@ function parseSheetData(source, text) {
 
   const fallbackMonth = monthNumber(source.name);
   const dayColumns = findDayColumns(header, fallbackMonth);
+  const totalIndex = findHeaderIndex(header, ['total_geral', 'total']);
+  const metaMonthIndex = findHeaderIndex(header, ['meta_mes']);
+  const metaPartialIndex = findHeaderIndex(header, ['meta_parcial']);
+  const diffMetaIndex = findHeaderIndex(header, ['dif_meta_x_real_n']);
   const month = dayColumns.find(col => col.month)?.month || fallbackMonth;
   const days = dayColumns.map(col => col.day);
   const dt = buildDayTypes(month, days);
   const totalRow = rows[totalRowIndex];
   const daily = dayColumns.map(col => col.index >= 0 ? parseNumber(totalRow[col.index]) : 0);
   const totals = splitUtilFds(daily, dt);
+  const metaMonth = metaMonthIndex >= 0 ? parseNumber(totalRow[metaMonthIndex]) : 0;
+  const metaPartial = metaPartialIndex >= 0 ? parseNumber(totalRow[metaPartialIndex]) : 0;
+  const diffMeta = diffMetaIndex >= 0 ? parseNumber(totalRow[diffMetaIndex]) : daily.reduce((sum, value) => sum + value, 0) - metaPartial;
 
   const mags = [];
   for (let i = totalRowIndex + 1; i < rows.length; i += 1) {
@@ -137,16 +151,36 @@ function parseSheetData(source, text) {
     const name = String(row[0] || '').trim();
     if (!name || normalizeKey(name).includes('total')) continue;
     const rowDaily = dayColumns.map(col => col.index >= 0 ? parseNumber(row[col.index]) : 0);
-    const total = rowDaily.reduce((sum, value) => sum + value, 0);
-    if (total <= 0) continue;
+    const total = totalIndex >= 0 ? parseNumber(row[totalIndex]) : rowDaily.reduce((sum, value) => sum + value, 0);
+    const rowMetaMonth = metaMonthIndex >= 0 ? parseNumber(row[metaMonthIndex]) : 0;
+    const rowMetaPartial = metaPartialIndex >= 0 ? parseNumber(row[metaPartialIndex]) : 0;
+    const rowDiffMeta = diffMetaIndex >= 0 ? parseNumber(row[diffMetaIndex]) : total - rowMetaPartial;
+    if (total <= 0 && rowMetaMonth <= 0 && rowMetaPartial <= 0) continue;
     const parts = splitUtilFds(rowDaily, dt);
-    mags.push({ n: name, total, util: parts.u, fds: parts.f });
+    mags.push({
+      n: name,
+      total,
+      util: parts.u,
+      fds: parts.f,
+      d1: rowDaily.length ? rowDaily[rowDaily.length - 1] : 0,
+      metaMonth: rowMetaMonth,
+      metaPartial: rowMetaPartial,
+      diffMeta: rowDiffMeta,
+      attendPartial: rowMetaPartial > 0 ? total / rowMetaPartial : 0,
+      attendMonth: rowMetaMonth > 0 ? total / rowMetaMonth : 0
+    });
   }
 
   return {
     t: daily.reduce((sum, value) => sum + value, 0),
     u: totals.u,
     f: totals.f,
+    metaMonth,
+    metaPartial,
+    diffMeta,
+    attendPartial: metaPartial > 0 ? daily.reduce((sum, value) => sum + value, 0) / metaPartial : 0,
+    attendMonth: metaMonth > 0 ? daily.reduce((sum, value) => sum + value, 0) / metaMonth : 0,
+    d1: daily.length ? daily[daily.length - 1] : 0,
     daily,
     dt,
     label: source.name,
