@@ -163,6 +163,7 @@ function parseSheetData(source, text) {
       util: parts.u,
       fds: parts.f,
       d1: rowDaily.length ? rowDaily[rowDaily.length - 1] : 0,
+      daily: rowDaily,
       metaMonth: rowMetaMonth,
       metaPartial: rowMetaPartial,
       diffMeta: rowDiffMeta,

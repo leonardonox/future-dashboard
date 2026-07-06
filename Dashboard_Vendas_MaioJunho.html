@@ -666,9 +666,38 @@ function combinedMagRows(){
 function magFor(row, key){
   return monthMags(key).find(item=>item.n===row.n) || {total:0,util:0,fds:0};
 }
-function magVal(row, key){ return magFor(row,key).total || 0; }
-function magUtil(row, key){ return magFor(row,key).util || 0; }
-function magFds(row, key){ return magFor(row,key).fds || 0; }
+function sumDailyUntil(days, daily, cutoffDay){
+  if(!Array.isArray(daily)) return 0;
+  return daily.reduce((sum,value,i)=>{
+    const day=Number(days?.[i] || (i+1));
+    return day<=cutoffDay ? sum+Number(value || 0) : sum;
+  },0);
+}
+function sumDailyTypeUntil(days, daily, types, cutoffDay, type){
+  if(!Array.isArray(daily)) return 0;
+  return daily.reduce((sum,value,i)=>{
+    const day=Number(days?.[i] || (i+1));
+    return day<=cutoffDay && types?.[i]===type ? sum+Number(value || 0) : sum;
+  },0);
+}
+function magVal(row, key){
+  const mag=magFor(row,key);
+  const base=DATA[key];
+  if(compareCutoffDay && Array.isArray(mag.daily)) return sumDailyUntil(base?.days, mag.daily, compareCutoffDay);
+  return mag.total || 0;
+}
+function magUtil(row, key){
+  const mag=magFor(row,key);
+  const base=DATA[key];
+  if(compareCutoffDay && Array.isArray(mag.daily)) return sumDailyTypeUntil(base?.days, mag.daily, base?.dt, compareCutoffDay, 'Útil');
+  return mag.util || 0;
+}
+function magFds(row, key){
+  const mag=magFor(row,key);
+  const base=DATA[key];
+  if(compareCutoffDay && Array.isArray(mag.daily)) return sumDailyTypeUntil(base?.days, mag.daily, base?.dt, compareCutoffDay, 'FDS');
+  return mag.fds || 0;
+}
 
 // ──────────────────────────────────────────────────────────────
 // STATE
@@ -676,6 +705,7 @@ function magFds(row, key){ return magFor(row,key).fds || 0; }
 let selA = 'abril', selB = 'junho';
 let selMeta = 'junho';
 let charts = {};
+let compareCutoffDay = null;
 
 function mesKey(btn){ return btn.dataset.mes; }
 
@@ -701,20 +731,66 @@ function rebuildAll(){
   ensureMonthSelection();
   const A=DATA[selA], B=DATA[selB];
   if(!A || !B) return;
-  buildKPIs(A,B);
-  buildAccum(A,B);
-  buildDonut(A,B);
-  buildTop(A,B);
-  buildDaily(A,B);
-  buildDiff(A,B);
-  buildDailyTable(A,B);
-  updateMagHeaders(A,B);
+  compareCutoffDay = getComparisonCutoffDay(A,B);
+  const Ac = applyComparisonCutoff(A, compareCutoffDay);
+  const Bc = applyComparisonCutoff(B, compareCutoffDay);
+  buildKPIs(Ac,Bc);
+  buildAccum(Ac,Bc);
+  buildDonut(Ac,Bc);
+  buildTop(Ac,Bc);
+  buildDaily(Ac,Bc);
+  buildDiff(Ac,Bc);
+  buildDailyTable(Ac,Bc);
+  updateMagHeaders(Ac,Bc);
   renderMags();
   renderMetas();
   updateDataWarning();
   renderAnalysis();
 }
 
+function lastDataDay(data){
+  if(!data?.daily?.length) return 0;
+  for(let i=data.daily.length-1;i>=0;i-=1){
+    if(Number(data.daily[i] || 0)>0) return Number(data.days?.[i] || (i+1));
+  }
+  return Number(data.days?.[data.daily.length-1] || data.daily.length || 0);
+}
+function getComparisonCutoffDay(A,B){
+  const bDay=lastDataDay(B);
+  const aDay=lastDataDay(A);
+  if(aDay && bDay) return Math.min(aDay,bDay);
+  return bDay || aDay || null;
+}
+function comparisonSliceLength(data, cutoffDay){
+  if(!data?.daily?.length || !cutoffDay) return data?.daily?.length || 0;
+  let length=0;
+  for(let i=0;i<data.daily.length;i+=1){
+    const day=Number(data.days?.[i] || (i+1));
+    if(day<=cutoffDay) length=i+1;
+  }
+  return length || Math.min(cutoffDay, data.daily.length);
+}
+function applyComparisonCutoff(data, cutoffDay){
+  const length=comparisonSliceLength(data, cutoffDay);
+  const daily=(data.daily || []).slice(0,length);
+  const dt=(data.dt || []).slice(0,length);
+  const u=daily.reduce((sum,value,i)=>sum+(dt[i]==='Útil'?Number(value || 0):0),0);
+  const f=daily.reduce((sum,value,i)=>sum+(dt[i]==='FDS'?Number(value || 0):0),0);
+  return {
+    ...data,
+    fullTotal:data.t,
+    fullDaily:data.daily,
+    cutoffDay,
+    daily,
+    dt,
+    days:(data.days || []).slice(0,length),
+    dates:(data.dates || []).slice(0,length),
+    t:daily.reduce((sum,value)=>sum+Number(value || 0),0),
+    u,
+    f,
+    d1:daily.length ? daily[daily.length-1] : 0
+  };
+}
 function compareLength(A,B){ return Math.max(A?.daily?.length || 0, B?.daily?.length || 0); }
 function compareIndexes(A,B){ return Array.from({length:compareLength(A,B)},(_,i)=>i); }
 function dayLabel(A,B,i){ return A?.days?.[i] || B?.days?.[i] || (i+1); }
@@ -727,10 +803,11 @@ function badgeCls(v){ return v>=0?'pos':'neg'; }
 
 // ── KPIs ──
 function buildKPIs(A,B){
+  const cutoffText = B.cutoffDay ? `até o dia ${B.cutoffDay}` : 'no período disponível';
   const pairs=[
     ['📦 Total Artigos',   A.t, B.t,  ''],
-    ['💼 Dias Úteis',      A.u, B.u,  `15 dias úteis / mês`],
-    ['🏖️ Fins de Semana', A.f, B.f,  `6 fins de semana / mês`],
+    ['💼 Dias Úteis',      A.u, B.u,  `${countType(A,'Útil')} → ${countType(B,'Útil')} dias úteis (${cutoffText})`],
+    ['🏖️ Fins de Semana', A.f, B.f,  `${countType(A,'FDS')} → ${countType(B,'FDS')} fins de semana (${cutoffText})`],
     ['📊 Média / Dia Útil', +(A.u/Math.max(countType(A,'Útil'),1)).toFixed(1), +(B.u/Math.max(countType(B,'Útil'),1)).toFixed(1), 'artigos por dia útil'],
     ['📊 Média / FDS',      +(A.f/Math.max(countType(A,'FDS'),1)).toFixed(1),  +(B.f/Math.max(countType(B,'FDS'),1)).toFixed(1),  'artigos por FDS'],
   ];
@@ -746,7 +823,7 @@ function buildKPIs(A,B){
         <span class="vb">${bv.toLocaleString('pt-BR')}</span>
         <span class="badge ${badgeCls(d)}">${sign(d)}${(typeof d==='number'&&!Number.isInteger(d))?d.toFixed(1):d} (${sign(p)}${p}%)</span>
       </div>
-      <div class="kpi-sub">${sub || `<span class="dot dot-a"></span>${A.label} &nbsp; <span class="dot dot-b"></span>${B.label}`}</div>
+      <div class="kpi-sub">${sub || `<span class="dot dot-a"></span>${A.label} &nbsp; <span class="dot dot-b"></span>${B.label} · ${cutoffText}`}</div>
     </div>`;
   });
   // Winner card
@@ -757,7 +834,7 @@ function buildKPIs(A,B){
     <div class="kpi-vals" style="margin-top:10px">
       <span style="font-size:1.3rem;font-weight:800;color:${winColor}">${winner} ✅</span>
     </div>
-    <div class="kpi-sub">${sign(B.t-A.t)}${B.t-A.t} artigos de diferença</div>
+    <div class="kpi-sub">${sign(B.t-A.t)}${B.t-A.t} artigos de diferença (${cutoffText})</div>
   </div>`;
 }
 
