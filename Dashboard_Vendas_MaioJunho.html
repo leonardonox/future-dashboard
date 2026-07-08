@@ -755,14 +755,26 @@ function lastDataDay(data){
   }
   return Number(data.days?.[data.daily.length-1] || data.daily.length || 0);
 }
+function monthNumberFromData(data){
+  const date = String((data?.dates || []).find(Boolean) || '');
+  const match = date.match(/\/(\d{1,2})$/);
+  return match ? Number(match[1]) : Number(sourceMonthNumber(data?.label));
+}
+function completedDayLimit(data){
+  const dataMonth = monthNumberFromData(data);
+  const today = new Date();
+  const currentMonth = today.getMonth() + 1;
+  const lastFilledDay = lastDataDay(data);
+  if(dataMonth === currentMonth) return Math.min(Math.max(today.getDate() - 1, 0), lastFilledDay || today.getDate() - 1);
+  return lastFilledDay;
+}
 function getComparisonCutoffDay(A,B){
-  const bDay=lastDataDay(B);
-  const aDay=lastDataDay(A);
-  if(aDay && bDay) return Math.min(aDay,bDay);
-  return bDay || aDay || null;
+  const limits = [completedDayLimit(A), completedDayLimit(B)].filter(v => Number.isFinite(v));
+  if(!limits.length) return null;
+  return Math.min(...limits);
 }
 function comparisonSliceLength(data, cutoffDay){
-  if(!data?.daily?.length || !cutoffDay) return data?.daily?.length || 0;
+  if(!data?.daily?.length || cutoffDay === null || cutoffDay === undefined) return data?.daily?.length || 0;
   let length=0;
   for(let i=0;i<data.daily.length;i+=1){
     const day=Number(data.days?.[i] || (i+1));
@@ -1213,6 +1225,7 @@ function atualizarDados() {
 </script>
 </body>
 </html>
+
 
 
 
