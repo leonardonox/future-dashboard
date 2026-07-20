@@ -91,10 +91,12 @@ function findHeaderIndex(header, patterns) {
 function findDayColumns(header, preferredMonth) {
   const columns = [];
   header.forEach((cell, index) => {
-    const match = String(cell || '').match(/^(\d{1,2})\/(\d{1,2})$/);
+    // Aceita também cabeçalhos incompletos como "15/". Nesse caso usa o
+    // mês informado no cadastro da fonte (ex.: Julho).
+    const match = String(cell || '').trim().match(/^(\d{1,2})\/(\d{0,2})$/);
     if (!match) return;
     const day = Number(match[1]);
-    const month = Number(match[2]);
+    const month = Number(match[2]) || preferredMonth || 0;
     if (day < 1 || day > 31) return;
     columns.push({ day, month, index });
   });
