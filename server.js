@@ -384,12 +384,29 @@ const server = http.createServer(async (req, res) => {
       const data = await loadSheets();
       const lookupName = originalName || name;
       const existing = data.sources.find(src => src.name.toLowerCase() === lookupName.toLowerCase());
-      if (existing) {
-        existing.name = name;
-        existing.url = sheetUrl;
-        existing.updatedAt = new Date().toISOString();
+      const source = existing || { name, url: sheetUrl, createdAt: new Date().toISOString() };
+      source.name = name;
+      source.url = sheetUrl;
+      source.updatedAt = new Date().toISOString();
+      if (!existing) data.sources.push(source);
+
+      // Recarrega a fonte ao salvar para nunca manter os dados processados
+      // de um link anterior. Vale para qualquer mês cadastrado.
+      if (sheetUrl) {
+        try {
+          const result = await fetchSheetSource(source);
+          source.lastSync = result.fetchedAt;
+          source.lastBytes = result.bytes;
+          source.lastPreview = result.preview;
+          if (result.parsed) source.parsed = result.parsed;
+          source.lastError = '';
+        } catch (err) {
+          source.lastError = err.message;
+          delete source.parsed;
+        }
       } else {
-        data.sources.push({ name, url: sheetUrl, createdAt: new Date().toISOString() });
+        source.lastError = '';
+        delete source.parsed;
       }
       await saveSheets(data);
       sendJson(res, 200, data);
